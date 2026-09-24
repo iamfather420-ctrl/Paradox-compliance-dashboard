@@ -1,0 +1,6 @@
+{
+  "name": "Project AGATE Sovereign Core",
+  "description": "Unified orchestration monorepo, build suite, and sovereign parity audit control panel for Project AGATE.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
