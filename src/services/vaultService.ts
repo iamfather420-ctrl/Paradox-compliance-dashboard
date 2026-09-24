@@ -63,15 +63,50 @@ export interface ContextVariables {
   contextHash: string;
 }
 
-// Genuine Web Crypto SHA-256 implementation
+// Genuine Web Crypto SHA-256 implementation (Browser & Node.js compatible)
 export async function computeSHA256(message: string): Promise<string> {
   const encoder = new TextEncoder();
   const data = encoder.encode(message);
-  const hashBuffer = await window.crypto.subtle.digest("SHA-256", data);
+  const cryptoObj = typeof window !== "undefined" && window.crypto ? window.crypto : globalThis.crypto;
+  const hashBuffer = await cryptoObj.subtle.digest("SHA-256", data);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const hex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
   return `0x${hex}`;
 }
+
+const memoryStorage = new Map<string, string>();
+const safeStorage = {
+  getItem: (key: string): string | null => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      try {
+        return window.localStorage.getItem(key);
+      } catch {
+        return memoryStorage.get(key) || null;
+      }
+    }
+    return memoryStorage.get(key) || null;
+  },
+  setItem: (key: string, val: string): void => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      try {
+        window.localStorage.setItem(key, val);
+      } catch {
+        // fallback
+      }
+    }
+    memoryStorage.set(key, val);
+  },
+  removeItem: (key: string): void => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      try {
+        window.localStorage.removeItem(key);
+      } catch {
+        // fallback
+      }
+    }
+    memoryStorage.delete(key);
+  }
+};
 
 const STORAGE_KEYS = {
   LEDGER: "agate_consensus_memory_v1",
@@ -175,13 +210,13 @@ export class VaultService {
   }
 
   private ensureInitialized(): void {
-    if (!localStorage.getItem(STORAGE_KEYS.LEDGER)) {
-      localStorage.setItem(STORAGE_KEYS.LEDGER, JSON.stringify(INITIAL_GENESIS_LEDGER, null, 2));
+    if (!safeStorage.getItem(STORAGE_KEYS.LEDGER)) {
+      safeStorage.setItem(STORAGE_KEYS.LEDGER, JSON.stringify(INITIAL_GENESIS_LEDGER, null, 2));
     }
-    if (!localStorage.getItem(STORAGE_KEYS.HANDSHAKE)) {
-      localStorage.setItem(STORAGE_KEYS.HANDSHAKE, JSON.stringify(INITIAL_HANDSHAKE_LOGS));
+    if (!safeStorage.getItem(STORAGE_KEYS.HANDSHAKE)) {
+      safeStorage.setItem(STORAGE_KEYS.HANDSHAKE, JSON.stringify(INITIAL_HANDSHAKE_LOGS));
     }
-    const savedAutoAudit = localStorage.getItem(STORAGE_KEYS.AUTO_AUDIT);
+    const savedAutoAudit = safeStorage.getItem(STORAGE_KEYS.AUTO_AUDIT);
     if (savedAutoAudit !== null) {
       this.isAutoAuditRunning = savedAutoAudit === "true";
     }
@@ -216,7 +251,7 @@ export class VaultService {
   public getLedger(): ConsensusLedger {
     this.ensureInitialized();
     try {
-      const raw = localStorage.getItem(STORAGE_KEYS.LEDGER);
+      const raw = safeStorage.getItem(STORAGE_KEYS.LEDGER);
       if (raw) return JSON.parse(raw);
     } catch (e) {
       console.error("Failed to parse ledger:", e);
@@ -227,7 +262,7 @@ export class VaultService {
   public getHandshakeLogs(): string[] {
     this.ensureInitialized();
     try {
-      const raw = localStorage.getItem(STORAGE_KEYS.HANDSHAKE);
+      const raw = safeStorage.getItem(STORAGE_KEYS.HANDSHAKE);
       if (raw) return JSON.parse(raw);
     } catch (e) {
       console.error("Failed to parse handshakes:", e);
@@ -244,7 +279,7 @@ export class VaultService {
 
   public getContextVariables(): ContextVariables {
     try {
-      const raw = localStorage.getItem(STORAGE_KEYS.CONTEXT);
+      const raw = safeStorage.getItem(STORAGE_KEYS.CONTEXT);
       if (raw) return JSON.parse(raw);
     } catch (e) {
       // fallback
@@ -259,7 +294,7 @@ export class VaultService {
   }
 
   public saveContextVariables(ctx: ContextVariables): void {
-    localStorage.setItem(STORAGE_KEYS.CONTEXT, JSON.stringify(ctx));
+    safeStorage.setItem(STORAGE_KEYS.CONTEXT, JSON.stringify(ctx));
     this.notify();
   }
 
@@ -277,7 +312,8 @@ export class VaultService {
     const tokensMinted = Number((wasteWeight * rate).toFixed(2));
 
     // Genuine cryptographic calculations
-    const proofPayload = `PROOF_EFFICACY:${harvesterId}:${wasteWeight}:${prevHash}:${timestamp}:${window.crypto.randomUUID()}`;
+    const cryptoRandomUUID = typeof window !== "undefined" && window.crypto?.randomUUID ? window.crypto.randomUUID() : `uuid_${Date.now()}_${Math.random()}`;
+    const proofPayload = `PROOF_EFFICACY:${harvesterId}:${wasteWeight}:${prevHash}:${timestamp}:${cryptoRandomUUID}`;
     const proofOfEfficacy = await computeSHA256(proofPayload);
 
     const txPayload = `TX:${harvesterId}:${wasteWeight}:${tokensMinted}:${proofOfEfficacy}:${prevHash}:${timestamp}`;
@@ -312,14 +348,14 @@ export class VaultService {
       ledger.transactions.map(t => t.tx_id).join(":")
     );
 
-    // Save to localStorage
-    localStorage.setItem(STORAGE_KEYS.LEDGER, JSON.stringify(ledger, null, 2));
+    // Save to safeStorage
+    safeStorage.setItem(STORAGE_KEYS.LEDGER, JSON.stringify(ledger, null, 2));
 
     // Log to AI Handshake
     const handshakes = this.getHandshakeLogs();
     const newHandshake = `[${timestamp}] [SENDER:${harvesterId}] Burn verified: ${wasteWeight}kg waste -> Minted +${tokensMinted} AGATE to ${beneficiaryNode}. Proof: ${proofOfEfficacy.slice(0, 18)}...`;
     const updatedHandshakes = [newHandshake, ...handshakes.slice(0, 49)];
-    localStorage.setItem(STORAGE_KEYS.HANDSHAKE, JSON.stringify(updatedHandshakes));
+    safeStorage.setItem(STORAGE_KEYS.HANDSHAKE, JSON.stringify(updatedHandshakes));
 
     this.notify();
     return newTx;
@@ -387,7 +423,7 @@ export class VaultService {
       result.deviation_vector = deviationVector;
     }
 
-    localStorage.setItem(STORAGE_KEYS.AUDIT_RESULT, JSON.stringify(result));
+    safeStorage.setItem(STORAGE_KEYS.AUDIT_RESULT, JSON.stringify(result));
     this.notifyAutoAudit(result);
     return result;
   }
@@ -395,7 +431,7 @@ export class VaultService {
   public getLastAuditResult(): AuditOutput | null {
     if (this.lastAuditResult) return this.lastAuditResult;
     try {
-      const raw = localStorage.getItem(STORAGE_KEYS.AUDIT_RESULT);
+      const raw = safeStorage.getItem(STORAGE_KEYS.AUDIT_RESULT);
       if (raw) {
         this.lastAuditResult = JSON.parse(raw);
         return this.lastAuditResult;
@@ -412,7 +448,7 @@ export class VaultService {
 
   public setAutoAuditEnabled(enabled: boolean): void {
     this.isAutoAuditRunning = enabled;
-    localStorage.setItem(STORAGE_KEYS.AUTO_AUDIT, String(enabled));
+    safeStorage.setItem(STORAGE_KEYS.AUTO_AUDIT, String(enabled));
     if (enabled) {
       this.secondsUntilNextAudit = 60;
       this.startAutoAuditScheduler();
@@ -434,18 +470,20 @@ export class VaultService {
     this.runParityAudit();
 
     // 1-second interval ticker for live countdown
-    this.tickerTimer = window.setInterval(() => {
-      if (!this.isAutoAuditRunning) return;
-      this.secondsUntilNextAudit -= 1;
-      if (this.secondsUntilNextAudit <= 0) {
-        this.secondsUntilNextAudit = 60;
-        this.runParityAudit();
-      } else {
-        if (this.lastAuditResult) {
-          this.autoAuditSubscribers.forEach(cb => cb(this.lastAuditResult!, this.secondsUntilNextAudit));
+    if (typeof window !== "undefined") {
+      this.tickerTimer = window.setInterval(() => {
+        if (!this.isAutoAuditRunning) return;
+        this.secondsUntilNextAudit -= 1;
+        if (this.secondsUntilNextAudit <= 0) {
+          this.secondsUntilNextAudit = 60;
+          this.runParityAudit();
+        } else {
+          if (this.lastAuditResult) {
+            this.autoAuditSubscribers.forEach(cb => cb(this.lastAuditResult!, this.secondsUntilNextAudit));
+          }
         }
-      }
-    }, 1000);
+      }, 1000);
+    }
   }
 
   private stopAutoAuditScheduler(): void {
@@ -470,10 +508,10 @@ export class VaultService {
   }
 
   public resetLedgerToDefault(): void {
-    localStorage.setItem(STORAGE_KEYS.LEDGER, JSON.stringify(INITIAL_GENESIS_LEDGER, null, 2));
-    localStorage.setItem(STORAGE_KEYS.HANDSHAKE, JSON.stringify(INITIAL_HANDSHAKE_LOGS));
-    localStorage.removeItem(STORAGE_KEYS.CONTEXT);
-    localStorage.removeItem(STORAGE_KEYS.AUDIT_RESULT);
+    safeStorage.setItem(STORAGE_KEYS.LEDGER, JSON.stringify(INITIAL_GENESIS_LEDGER, null, 2));
+    safeStorage.setItem(STORAGE_KEYS.HANDSHAKE, JSON.stringify(INITIAL_HANDSHAKE_LOGS));
+    safeStorage.removeItem(STORAGE_KEYS.CONTEXT);
+    safeStorage.removeItem(STORAGE_KEYS.AUDIT_RESULT);
     this.notify();
     this.runParityAudit();
   }

@@ -1,0 +1,40 @@
+name: DFRL Sovereign Formal Verification & CI Gate
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  formal-verification:
+    runs-on: ubuntu-latest
+    name: Machine-Evidence Proof Verification (Z3 WASM)
+
+    steps:
+      - name: Checkout Sovereign Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: TypeScript Static Lint Gate
+        run: npm run lint
+
+      - name: Execute Live Z3 Proof Verifier (All 88 SMT-LIB Propositions)
+        run: npm run verify:proofs
+
+      - name: Generate Complete DFRL Audit Dossier & Machine Evidence Table
+        run: npm run verify:dfrl
+
+      - name: Execute Enterprise Security & Anti-Fabrication Mutation Suite
+        run: npm run verify:enterprise
+
+      - name: Compile & Build Application
+        run: npm run build

@@ -19,12 +19,14 @@ import MonorepoTree from "./components/MonorepoTree";
 import BuildOrchestrator from "./components/BuildOrchestrator";
 import RegisterBurnConsole from "./components/RegisterBurnConsole";
 import DaisyHaminjaCore from "./components/DaisyHaminjaCore";
+import DFRLConsole from "./components/DFRLConsole";
 import { vaultService, AuditOutput, ConsensusLedger } from "./services/vaultService";
 
-type AppView = "overview" | "auditor" | "tree" | "orchestrator" | "burn" | "haminja";
+type AppView = "overview" | "dfrl" | "auditor" | "tree" | "orchestrator" | "burn" | "haminja";
 
 export default function App() {
   const [activeView, setActiveView] = useState<AppView>("overview");
+  const [selectedDfrlOp, setSelectedDfrlOp] = useState<string>("PARADOX_08");
   const [auditResult, setAuditResult] = useState<AuditOutput | null>(() => vaultService.getLastAuditResult());
   const [secondsUntilAudit, setSecondsUntilAudit] = useState<number>(() => vaultService.getSecondsUntilNextAudit());
   const [autoAuditEnabled, setAutoAuditEnabled] = useState<boolean>(() => vaultService.isAutoAuditEnabled());
@@ -163,6 +165,19 @@ export default function App() {
             📊 System Overview
           </button>
           <button
+            onClick={() => setActiveView("dfrl")}
+            className={`px-4 py-2.5 rounded-lg text-xs font-mono transition-all border flex items-center gap-1.5 cursor-pointer ${
+              activeView === "dfrl"
+                ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/40 font-bold shadow-lg"
+                : "bg-transparent text-slate-400 border-transparent hover:bg-slate-800/40 hover:text-slate-300"
+            }`}
+          >
+            <span>⚖️ DFRL — ALL PROOFS</span>
+            <span className="text-[9px] bg-indigo-500/25 text-indigo-300 px-1.5 py-0.2 rounded font-bold">
+              88 PROOFS
+            </span>
+          </button>
+          <button
             onClick={() => setActiveView("auditor")}
             className={`px-4 py-2.5 rounded-lg text-xs font-mono transition-all border flex items-center gap-2 cursor-pointer ${
               activeView === "auditor"
@@ -237,10 +252,16 @@ export default function App() {
                 </p>
                 <div className="flex flex-wrap gap-4 mt-6">
                   <button 
+                    onClick={() => setActiveView("dfrl")}
+                    className="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 px-4 rounded-lg text-xs font-mono transition-all cursor-pointer shadow-lg shadow-indigo-950/40"
+                  >
+                    ⚖️ DFRL — ALL PROOFS (88 Operators)
+                  </button>
+                  <button 
                     onClick={() => setActiveView("auditor")}
                     className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-lg text-xs font-mono transition-all cursor-pointer"
                   >
-                    Launch Sovereign Auditor (Auto-Audit Active)
+                    Launch Sovereign Auditor
                   </button>
                   <button 
                     onClick={() => setActiveView("burn")}
@@ -344,11 +365,19 @@ export default function App() {
             </div>
           )}
 
+          {activeView === "dfrl" && <DFRLConsole initialOperatorId={selectedDfrlOp} />}
           {activeView === "auditor" && <SovereignAuditor />}
           {activeView === "tree" && <MonorepoTree />}
           {activeView === "orchestrator" && <BuildOrchestrator />}
           {activeView === "burn" && <RegisterBurnConsole />}
-          {activeView === "haminja" && <DaisyHaminjaCore />}
+          {activeView === "haminja" && (
+            <DaisyHaminjaCore 
+              onNavigateToDFRL={(opId) => {
+                setSelectedDfrlOp(opId);
+                setActiveView("dfrl");
+              }} 
+            />
+          )}
 
         </div>
       </main>

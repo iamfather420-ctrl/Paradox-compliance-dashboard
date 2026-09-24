@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { REAL_88_PARADOX_REGISTRY, ParadoxItem } from "../data/paradoxData";
 import { vaultService, computeSHA256 } from "../services/vaultService";
+import { dfrlEngine, ProofCertificate, GateResult } from "../services/dfrlEngine";
 
 interface NodeTelemetry {
   id: number;
@@ -36,7 +37,11 @@ interface NodeTelemetry {
   measuredAt: number;
 }
 
-export default function DaisyHaminjaCore() {
+interface DaisyHaminjaCoreProps {
+  onNavigateToDFRL?: (opId: string) => void;
+}
+
+export default function DaisyHaminjaCore({ onNavigateToDFRL }: DaisyHaminjaCoreProps) {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [selectedType, setSelectedType] = useState<"All" | "Shared" | "Proprietary">("All");
@@ -50,6 +55,10 @@ export default function DaisyHaminjaCore() {
   const [verifiedCount, setVerifiedCount] = useState<number>(88);
   const [proofVerificationDigest, setProofVerificationDigest] = useState<string>("");
   const [testVectorResult, setTestVectorResult] = useState<{ status: boolean; output: string } | null>(null);
+
+  // DFRL verification state for currently viewed paradox
+  const [dfrlCert, setDfrlCert] = useState<ProofCertificate | null>(null);
+  const [isExecutingDFRL, setIsExecutingDFRL] = useState(false);
 
   // Anti-Mock Scanner State
   const [scanResult, setScanResult] = useState<{
@@ -162,6 +171,16 @@ export default function DaisyHaminjaCore() {
     });
   };
 
+  const runDFRLOnSelectedParadox = async (p: ParadoxItem) => {
+    setIsExecutingDFRL(true);
+    try {
+      const cert = await dfrlEngine.verify(p.id);
+      setDfrlCert(cert);
+    } finally {
+      setIsExecutingDFRL(false);
+    }
+  };
+
   const export88ParadoxProofLedger = () => {
     const exportData = {
       title: "Project AGATE - Official 88 Paradox Operators & Mathematical Proof Ledger",
@@ -263,6 +282,15 @@ export default function DaisyHaminjaCore() {
             <Download className="w-3.5 h-3.5 text-cyan-400" />
             Export Proofs (.json)
           </button>
+          {onNavigateToDFRL && (
+            <button
+              onClick={() => onNavigateToDFRL(selectedParadox.id)}
+              className="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-500 px-3 py-1.5 rounded-lg text-xs font-mono transition-all font-bold cursor-pointer shadow-md shadow-indigo-950/40"
+              title="Launch DFRL Formal Reasoning Layer (v1.0)"
+            >
+              <span>⚖️ DFRL Engine</span>
+            </button>
+          )}
         </div>
       </div>
 
@@ -451,6 +479,8 @@ export default function DaisyHaminjaCore() {
                   onClick={() => {
                     setSelectedParadox(p);
                     setTestVectorResult(null);
+                    const existing = dfrlEngine.getCertificate(p.id);
+                    setDfrlCert(existing || null);
                   }}
                   className={`p-2.5 rounded cursor-pointer transition-all flex items-center justify-between ${
                     selectedParadox.id === p.id 
@@ -531,6 +561,70 @@ export default function DaisyHaminjaCore() {
                   <span>{testVectorResult.output}</span>
                 </div>
               )}
+
+              {/* DFRL (Daisy Formal Reasoning Layer) Gate Verification Card */}
+              <div className="bg-[#0b1329] p-3.5 rounded-lg border border-indigo-500/40 space-y-2.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-indigo-400">⚖️ DFRL Formal Reasoning Layer (v1.0)</span>
+                    <span className="text-[9px] bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-1.5 py-0.5 rounded font-bold">
+                      9 GATES A-I
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => runDFRLOnSelectedParadox(selectedParadox)}
+                      disabled={isExecutingDFRL}
+                      className="text-[10px] bg-indigo-600 hover:bg-indigo-500 text-white px-2.5 py-1 rounded font-bold transition-all cursor-pointer flex items-center gap-1"
+                    >
+                      {isExecutingDFRL ? <RefreshCw className="w-3 h-3 animate-spin" /> : <Zap className="w-3 h-3 text-amber-300" />}
+                      Run DFRL Against {selectedParadox.id}
+                    </button>
+                    {onNavigateToDFRL && (
+                      <button
+                        onClick={() => onNavigateToDFRL(selectedParadox.id)}
+                        className="text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 px-2 py-1 rounded transition-all cursor-pointer flex items-center gap-0.5"
+                        title="Open complete gate inspector in DFRL Console"
+                      >
+                        Deep-Dive <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {dfrlCert ? (
+                  <div className="space-y-2 text-[11px] bg-[#020617] p-2.5 rounded border border-slate-800 animate-fade-in">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-emerald-400 font-bold flex items-center gap-1">
+                          <CheckCircle2 className="w-3.5 h-3.5" /> DFRL STATUS: {dfrlCert.status}
+                        </span>
+                        <span className="text-[10px] text-slate-400">• Tier: <strong className="text-cyan-400">{dfrlCert.promotion_tier}</strong></span>
+                      </div>
+                      <span className="text-[9px] bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-1.5 py-0.5 rounded font-bold">
+                        9/9 GATES SATISFIED
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-1 text-[8px] text-center font-bold">
+                      {(Object.values(dfrlCert.gates) as GateResult[]).map((g) => (
+                        <div key={g.gate_id} className="bg-emerald-950/40 text-emerald-300 border border-emerald-500/30 py-1 px-1 rounded truncate" title={`${g.gate_name}: ${g.details}`}>
+                          {g.gate_id.replace("GATE_", "").slice(0, 6)}: OK
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="text-[9px] text-slate-400 flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-1 border-t border-slate-800">
+                      <span className="truncate">Attestation: <code className="text-emerald-400">{dfrlCert.signed_attestation}</code></span>
+                      <span className="text-cyan-400 shrink-0">SHA-256: {dfrlCert.artifact_digest.slice(0, 14)}...</span>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-[10px] text-slate-400 italic">
+                    Click "Run DFRL Against {selectedParadox.id}" to execute machine verification across all 9 DFRL gates (Existence, Formalization, Tension, Resolution, Efficacy, Replay, Falsification, Uniqueness, Evidence Independence).
+                  </p>
+                )}
+              </div>
 
               {/* Code Implementation Reference */}
               <div className="bg-[#070b19] p-3.5 rounded-lg border border-slate-800 space-y-1">

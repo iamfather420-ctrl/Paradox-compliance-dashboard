@@ -1,0 +1,2490 @@
+{
+  "audit_date": "2026-09-24T20:39:24.453Z",
+  "verifier": "Z3 Theorem Prover v4.12.2 (WebAssembly Node Kernel)",
+  "metrics": {
+    "total": 88,
+    "unsat": 88,
+    "sat": 0,
+    "unknown": 0,
+    "error": 0,
+    "replayed": 88,
+    "duration_total_ms": 1854.46
+  },
+  "declarations": {
+    "canonical_operators_present": "YES",
+    "smt_artifacts_present": "YES",
+    "z3_executed": "YES",
+    "z3_machine_checked": "YES",
+    "implementation_backed": "PARTIAL",
+    "independently_replayed": "YES",
+    "anti_fabrication_enforced": "YES",
+    "batch_verify_live": "YES",
+    "ci_gate_enforced": "YES"
+  },
+  "operators": [
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_01",
+      "operator_id": "PARADOX_01",
+      "operator_name": "Identity-Orphan Collision State",
+      "category": "Identity",
+      "smt_sha256": "0x942da14cc0a1bb945d9afc4f6d8ae6b375b8f1b42df0b9b975f069be338756d8",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 331.438,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:22.938Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 331.438)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x942da14cc0a1bb945d9afc4f6d8ae6b375b8f1b42df0b9b975f069be338756d8\")\n)",
+      "replay": {
+        "pass1_hash": "0x51bb28325e16b88af772eeb457eb1436562fd739b296e4a5b364931ed8fbc9a8",
+        "pass2_hash": "0x51bb28325e16b88af772eeb457eb1436562fd739b296e4a5b364931ed8fbc9a8",
+        "match": true,
+        "pass1_ms": 331.438,
+        "pass2_ms": 7.123
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_11",
+      "operator_id": "PARADOX_11",
+      "operator_name": "Root Key Revocation Stalemate",
+      "category": "Identity",
+      "smt_sha256": "0x0e23d8f8c2bcc982f0c8c7dd3c79ad3ec6335ad094db56eaa860b7ed6321f4c3",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 6.562,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:22.951Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 6.562)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x0e23d8f8c2bcc982f0c8c7dd3c79ad3ec6335ad094db56eaa860b7ed6321f4c3\")\n)",
+      "replay": {
+        "pass1_hash": "0x8ad82bbf60b4dd718b08ae8c1f3b38fc3af27a695a5eab6e4cc5c386f17cf3f2",
+        "pass2_hash": "0x8ad82bbf60b4dd718b08ae8c1f3b38fc3af27a695a5eab6e4cc5c386f17cf3f2",
+        "match": true,
+        "pass1_ms": 6.562,
+        "pass2_ms": 5.863
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_25",
+      "operator_id": "PARADOX_25",
+      "operator_name": "Compromised Mobile Terminal Fingerprint",
+      "category": "Identity",
+      "smt_sha256": "0x42c7e061ec29a3f0b14e43990e060afb3d455a5f23897a682410c4b734c72593",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 5.243,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:22.962Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 5.243)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x42c7e061ec29a3f0b14e43990e060afb3d455a5f23897a682410c4b734c72593\")\n)",
+      "replay": {
+        "pass1_hash": "0x73ea3820723e3772015ff386efb657372d7aa6a9dc0c4aaa9b3ee967c036f118",
+        "pass2_hash": "0x73ea3820723e3772015ff386efb657372d7aa6a9dc0c4aaa9b3ee967c036f118",
+        "match": true,
+        "pass1_ms": 5.243,
+        "pass2_ms": 5.598
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_32",
+      "operator_id": "PARADOX_32",
+      "operator_name": "Ephemeral Session Replay on Reconnect",
+      "category": "Identity",
+      "smt_sha256": "0xc2e67c394860f25ba95c2297dfd541a36e63717eb54172d4a4d6a41c8af6e671",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 5.211,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:22.974Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 5.211)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xc2e67c394860f25ba95c2297dfd541a36e63717eb54172d4a4d6a41c8af6e671\")\n)",
+      "replay": {
+        "pass1_hash": "0x1f4e772eec588f5e5911adf016cd44161c478fd1b2c48b71376108aa400db551",
+        "pass2_hash": "0x1f4e772eec588f5e5911adf016cd44161c478fd1b2c48b71376108aa400db551",
+        "match": true,
+        "pass1_ms": 5.211,
+        "pass2_ms": 6.823
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_33",
+      "operator_id": "PARADOX_33",
+      "operator_name": "Decentralized Identifier (DID) Sybil Splintering",
+      "category": "Identity",
+      "smt_sha256": "0x0caa0e234001aa7b1d5e99bb967a35569913b2fa437df6f0d205f35ddd11c251",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 5.561,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:22.985Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 5.561)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x0caa0e234001aa7b1d5e99bb967a35569913b2fa437df6f0d205f35ddd11c251\")\n)",
+      "replay": {
+        "pass1_hash": "0x495cbc67d40b1c0e815cfcb4f7c678cc040cdf390b2ea2dd471696dfc1ff834c",
+        "pass2_hash": "0x495cbc67d40b1c0e815cfcb4f7c678cc040cdf390b2ea2dd471696dfc1ff834c",
+        "match": true,
+        "pass1_ms": 5.561,
+        "pass2_ms": 5.237
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_34",
+      "operator_id": "PARADOX_34",
+      "operator_name": "Cross-Subnet Identity Impersonation",
+      "category": "Identity",
+      "smt_sha256": "0xb4ef92cff8c67796048fb3780767147fe96fe55301b1742827b82f3ba333441f",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 5.12,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:22.995Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 5.120)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xb4ef92cff8c67796048fb3780767147fe96fe55301b1742827b82f3ba333441f\")\n)",
+      "replay": {
+        "pass1_hash": "0xb2ea622f4db2d7973e1fb0c0c309bed305b0a15b3aa991e6379aca358efdabf0",
+        "pass2_hash": "0xb2ea622f4db2d7973e1fb0c0c309bed305b0a15b3aa991e6379aca358efdabf0",
+        "match": true,
+        "pass1_ms": 5.12,
+        "pass2_ms": 5.204
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_35",
+      "operator_id": "PARADOX_35",
+      "operator_name": "Cryptographic Nonce Exhaustion Attack",
+      "category": "Identity",
+      "smt_sha256": "0x3a6c592931a09a2283a5cfbecd67cbf40e8c212a0c2d9648a448035ef1e15f34",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 7.168,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.008Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 7.168)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x3a6c592931a09a2283a5cfbecd67cbf40e8c212a0c2d9648a448035ef1e15f34\")\n)",
+      "replay": {
+        "pass1_hash": "0xc520c428536d15afa605a2df134db85d3e9ca18efec7e317e9048b6f13f71ae4",
+        "pass2_hash": "0xc520c428536d15afa605a2df134db85d3e9ca18efec7e317e9048b6f13f71ae4",
+        "match": true,
+        "pass1_ms": 7.168,
+        "pass2_ms": 5.615
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_36",
+      "operator_id": "PARADOX_36",
+      "operator_name": "Peer-to-Peer Relay Man-in-the-Middle",
+      "category": "Identity",
+      "smt_sha256": "0xb5d0d26cc39a94a34cedd382b46fcaea6802f112f16a46da0db7c8ba26b35304",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 4.969,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.018Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 4.969)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xb5d0d26cc39a94a34cedd382b46fcaea6802f112f16a46da0db7c8ba26b35304\")\n)",
+      "replay": {
+        "pass1_hash": "0xe952e846f4eaa7676a94e668e5527f304f7c7b46e37a0b10819341eb84837fa9",
+        "pass2_hash": "0xe952e846f4eaa7676a94e668e5527f304f7c7b46e37a0b10819341eb84837fa9",
+        "match": true,
+        "pass1_ms": 4.969,
+        "pass2_ms": 4.89
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_37",
+      "operator_id": "PARADOX_37",
+      "operator_name": "Biometric Template Feature Extraction Leakage",
+      "category": "Identity",
+      "smt_sha256": "0xb2d21cfa8e13d17124da0f626098e83872683ad7841eadec6d83364a512b718c",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 4.52,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.028Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 4.520)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xb2d21cfa8e13d17124da0f626098e83872683ad7841eadec6d83364a512b718c\")\n)",
+      "replay": {
+        "pass1_hash": "0x2eb24b26602a1889e75bc151b7ce53321d31fc3b587e909697f94c50f6cc89de",
+        "pass2_hash": "0x2eb24b26602a1889e75bc151b7ce53321d31fc3b587e909697f94c50f6cc89de",
+        "match": true,
+        "pass1_ms": 4.52,
+        "pass2_ms": 4.569
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_38",
+      "operator_id": "PARADOX_38",
+      "operator_name": "Sovereign DID Document Deletion Griefing",
+      "category": "Identity",
+      "smt_sha256": "0x3a5c5c839b57ce6d20cdbfd711049626e84537ccdf071af909726b79b85b6fa5",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 4.541,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.038Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 4.541)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x3a5c5c839b57ce6d20cdbfd711049626e84537ccdf071af909726b79b85b6fa5\")\n)",
+      "replay": {
+        "pass1_hash": "0x9c3da7877ac2e5c0850d2d72e32d21e2aac70088e3df075d9ddd7a2327f2833f",
+        "pass2_hash": "0x9c3da7877ac2e5c0850d2d72e32d21e2aac70088e3df075d9ddd7a2327f2833f",
+        "match": true,
+        "pass1_ms": 4.541,
+        "pass2_ms": 5.114
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_39",
+      "operator_id": "PARADOX_39",
+      "operator_name": "Key Derivation Path Branch Collision",
+      "category": "Identity",
+      "smt_sha256": "0x9d66063070d80849679d3f9a5ebdedb9781cd16d4830429b732e39a846025e04",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 5.043,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.048Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 5.043)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x9d66063070d80849679d3f9a5ebdedb9781cd16d4830429b732e39a846025e04\")\n)",
+      "replay": {
+        "pass1_hash": "0xb987cdb00510613583bc389880b0717df8d177cb83b08ed868fc1a5897a7ce3b",
+        "pass2_hash": "0xb987cdb00510613583bc389880b0717df8d177cb83b08ed868fc1a5897a7ce3b",
+        "match": true,
+        "pass1_ms": 5.043,
+        "pass2_ms": 5.318
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_40",
+      "operator_id": "PARADOX_40",
+      "operator_name": "Validator Node Key Leakage Post-Mortem",
+      "category": "Identity",
+      "smt_sha256": "0x3b4298873196e1ce179e2d5946e69947ca49e3f0c5c081fce80a2e98804f7a02",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 5.702,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.060Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 5.702)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x3b4298873196e1ce179e2d5946e69947ca49e3f0c5c081fce80a2e98804f7a02\")\n)",
+      "replay": {
+        "pass1_hash": "0xa4e13c082c31359e483933861ea364af2e3fe5031711dd85bab63c03e1ee467b",
+        "pass2_hash": "0xa4e13c082c31359e483933861ea364af2e3fe5031711dd85bab63c03e1ee467b",
+        "match": true,
+        "pass1_ms": 5.702,
+        "pass2_ms": 5.725
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_41",
+      "operator_id": "PARADOX_41",
+      "operator_name": "Hardware UUID Cold-Boot Snooping",
+      "category": "Identity",
+      "smt_sha256": "0x586a056de4efc4d4032dd7beeccc4054363ee1ca69b77bd2bfbad2ed0bda57e7",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 4.981,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.070Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 4.981)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x586a056de4efc4d4032dd7beeccc4054363ee1ca69b77bd2bfbad2ed0bda57e7\")\n)",
+      "replay": {
+        "pass1_hash": "0xbf2b9f3c33663230b9dc2eca8acc7e8042b9ede78947699715ea7e0d14029ae6",
+        "pass2_hash": "0xbf2b9f3c33663230b9dc2eca8acc7e8042b9ede78947699715ea7e0d14029ae6",
+        "match": true,
+        "pass1_ms": 4.981,
+        "pass2_ms": 5.197
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_42",
+      "operator_id": "PARADOX_42",
+      "operator_name": "Sovereign Override Unauthorized Handshake",
+      "category": "Identity",
+      "smt_sha256": "0xf2c5070ea1016a1b426c9b2ca4a6699c2a3d3ba3535b8c310691116e9380e08d",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 4.875,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.083Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 4.875)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xf2c5070ea1016a1b426c9b2ca4a6699c2a3d3ba3535b8c310691116e9380e08d\")\n)",
+      "replay": {
+        "pass1_hash": "0x2694a4a8eeab7c3ca8c66112c977dce7445ea857249f2ce1a0ea324f4e05e544",
+        "pass2_hash": "0x2694a4a8eeab7c3ca8c66112c977dce7445ea857249f2ce1a0ea324f4e05e544",
+        "match": true,
+        "pass1_ms": 4.875,
+        "pass2_ms": 7.542
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_43",
+      "operator_id": "PARADOX_43",
+      "operator_name": "Revocation Cascade Broadcast Delay",
+      "category": "Identity",
+      "smt_sha256": "0xae27ecddcd3c9b6734a3fc8d00a1eeb25381d6ee83073c6948e852ee8843f2d7",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 5.933,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_UF)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.094Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 5.933)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_UF)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xae27ecddcd3c9b6734a3fc8d00a1eeb25381d6ee83073c6948e852ee8843f2d7\")\n)",
+      "replay": {
+        "pass1_hash": "0x35e2adb9537864b369c3a262eab3f1ea2a1be405d2c7300b7032e6a41c67bf0b",
+        "pass2_hash": "0x35e2adb9537864b369c3a262eab3f1ea2a1be405d2c7300b7032e6a41c67bf0b",
+        "match": true,
+        "pass1_ms": 5.933,
+        "pass2_ms": 5.364
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_09",
+      "operator_id": "PARADOX_09",
+      "operator_name": "Zero-Knowledge Replay on Identity Renewal",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x6695587049c9bff3fac5b9c5e9cc302136f04e955fa9bf93f03292a44498bf1a",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 20.526,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.126Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 20.526)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x6695587049c9bff3fac5b9c5e9cc302136f04e955fa9bf93f03292a44498bf1a\")\n)",
+      "replay": {
+        "pass1_hash": "0xaa9c5fb85b7a3ea30ccc5ba5bae6f777b6b18340209332e2fc5c9dafc2c6450c",
+        "pass2_hash": "0xaa9c5fb85b7a3ea30ccc5ba5bae6f777b6b18340209332e2fc5c9dafc2c6450c",
+        "match": true,
+        "pass1_ms": 20.526,
+        "pass2_ms": 10.956
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_12",
+      "operator_id": "PARADOX_12",
+      "operator_name": "Zero-Knowledge Key Leakage Exposure",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x5af05267c429ce1bead6b3c899275e23610aac086898d7209e1a7770a61a36e4",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 12.704,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.150Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 12.704)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x5af05267c429ce1bead6b3c899275e23610aac086898d7209e1a7770a61a36e4\")\n)",
+      "replay": {
+        "pass1_hash": "0x994643fe6ee3a88f48adcbd2634c02246e3b0ff7c50173734c5ecb3d5cef3a1f",
+        "pass2_hash": "0x994643fe6ee3a88f48adcbd2634c02246e3b0ff7c50173734c5ecb3d5cef3a1f",
+        "match": true,
+        "pass1_ms": 12.704,
+        "pass2_ms": 11.359
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_17",
+      "operator_id": "PARADOX_17",
+      "operator_name": "Cryptographic Salt Collision Vulnerability",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0xc28d3b2566bd78b0e8e4cfd0451475fd8c4201437c2fd9a7955f419ccc067266",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.516,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.171Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.516)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xc28d3b2566bd78b0e8e4cfd0451475fd8c4201437c2fd9a7955f419ccc067266\")\n)",
+      "replay": {
+        "pass1_hash": "0x8d4cc9ba924ef54ac9f3448ed2fb82befda1b89effa2a2985c77404fec4bbcff",
+        "pass2_hash": "0x8d4cc9ba924ef54ac9f3448ed2fb82befda1b89effa2a2985c77404fec4bbcff",
+        "match": true,
+        "pass1_ms": 10.516,
+        "pass2_ms": 10.007
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_28",
+      "operator_id": "PARADOX_28",
+      "operator_name": "Privacy Identity Correlation Attack",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x6763dd2757924c50d89a26c04806e2957ec5bc62ebe3dead6cdf29ba15641211",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.559,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.194Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.559)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x6763dd2757924c50d89a26c04806e2957ec5bc62ebe3dead6cdf29ba15641211\")\n)",
+      "replay": {
+        "pass1_hash": "0x0d030bd467cb5a8340270dc9972b35d1c99c60106952a344c0dd7146736994df",
+        "pass2_hash": "0x0d030bd467cb5a8340270dc9972b35d1c99c60106952a344c0dd7146736994df",
+        "match": true,
+        "pass1_ms": 10.559,
+        "pass2_ms": 12.257
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_44",
+      "operator_id": "PARADOX_44",
+      "operator_name": "SRS Trusted Setup Toxic Waste Persistence",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x2a144640d8276f77bd6628647d4f815716111abead1523425a3704dac4d0491f",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 12.05,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.217Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 12.050)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x2a144640d8276f77bd6628647d4f815716111abead1523425a3704dac4d0491f\")\n)",
+      "replay": {
+        "pass1_hash": "0xeee0fa876c7c42992310cba20ce69d6cb42888c62bea809988a1bf735cd90d93",
+        "pass2_hash": "0xeee0fa876c7c42992310cba20ce69d6cb42888c62bea809988a1bf735cd90d93",
+        "match": true,
+        "pass1_ms": 12.05,
+        "pass2_ms": 10.566
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_45",
+      "operator_id": "PARADOX_45",
+      "operator_name": "Circuit Arithmetic Constraint Underflow",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0xe2b15f6ab727c908791619074d9f653e29e2669c5d49f43878e731751d50fd00",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.885,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.237Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.885)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xe2b15f6ab727c908791619074d9f653e29e2669c5d49f43878e731751d50fd00\")\n)",
+      "replay": {
+        "pass1_hash": "0x6a26545b96a515300fa785a79c60863c11449d77ed3c11d901b59deac28ddba3",
+        "pass2_hash": "0x6a26545b96a515300fa785a79c60863c11449d77ed3c11d901b59deac28ddba3",
+        "match": true,
+        "pass1_ms": 10.885,
+        "pass2_ms": 9.301
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_46",
+      "operator_id": "PARADOX_46",
+      "operator_name": "Witness Generation Out-of-Bounds Poisoning",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x81859a43db67955ee66310efae76630a943fb255681549f5dc3963857c38d172",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.839,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.258Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.839)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x81859a43db67955ee66310efae76630a943fb255681549f5dc3963857c38d172\")\n)",
+      "replay": {
+        "pass1_hash": "0xd432773592ccebe39ab964d85939c5a672e6a1ed8801f3d2095cfd2b2e4ce783",
+        "pass2_hash": "0xd432773592ccebe39ab964d85939c5a672e6a1ed8801f3d2095cfd2b2e4ce783",
+        "match": true,
+        "pass1_ms": 10.839,
+        "pass2_ms": 10.531
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_47",
+      "operator_id": "PARADOX_47",
+      "operator_name": "Elliptic Curve Homomorphic Homology Drift",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x453b5bab54c7ccaf5d7fe25d9b68a9cb1337a4dd5b61b67580b26602b38768e9",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 11.108,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.280Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 11.108)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x453b5bab54c7ccaf5d7fe25d9b68a9cb1337a4dd5b61b67580b26602b38768e9\")\n)",
+      "replay": {
+        "pass1_hash": "0x16442a9ebdfc75dbbcd5584b5f328a67675da257932fd490c281185d91bcb775",
+        "pass2_hash": "0x16442a9ebdfc75dbbcd5584b5f328a67675da257932fd490c281185d91bcb775",
+        "match": true,
+        "pass1_ms": 11.108,
+        "pass2_ms": 9.895
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_48",
+      "operator_id": "PARADOX_48",
+      "operator_name": "Recursive Proof Recursion Stack Overflow",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x8dd47b91319fd8365a47d9ff9e29bbf116d2696bed49c457ca4642b94e825f7e",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.386,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.300Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.386)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x8dd47b91319fd8365a47d9ff9e29bbf116d2696bed49c457ca4642b94e825f7e\")\n)",
+      "replay": {
+        "pass1_hash": "0x9109e6c6a8b26fdef4ff5448ff3096e489a1d66f985623592ab0c9b6699ab6c6",
+        "pass2_hash": "0x9109e6c6a8b26fdef4ff5448ff3096e489a1d66f985623592ab0c9b6699ab6c6",
+        "match": true,
+        "pass1_ms": 10.386,
+        "pass2_ms": 9.638
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_49",
+      "operator_id": "PARADOX_49",
+      "operator_name": "Groth16 Malleability Signature Tampering",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x3c454aa2a9409c7883a560295c3b3f24c7941885e46f862e92dfdad308982fde",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.792,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.321Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.792)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x3c454aa2a9409c7883a560295c3b3f24c7941885e46f862e92dfdad308982fde\")\n)",
+      "replay": {
+        "pass1_hash": "0x047f3f1f7e3cb8b226ec78b46d1a844a3f01e855e37a1f32c098dea31382b83a",
+        "pass2_hash": "0x047f3f1f7e3cb8b226ec78b46d1a844a3f01e855e37a1f32c098dea31382b83a",
+        "match": true,
+        "pass1_ms": 10.792,
+        "pass2_ms": 10.537
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_50",
+      "operator_id": "PARADOX_50",
+      "operator_name": "Zero-Knowledge Range Proof Truncation",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x92897f8b7de9e49fc172d5eb7e7795468fdb84e22f2cdd8d9df54a2d25c76523",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 11.524,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.343Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 11.524)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x92897f8b7de9e49fc172d5eb7e7795468fdb84e22f2cdd8d9df54a2d25c76523\")\n)",
+      "replay": {
+        "pass1_hash": "0x2e474b6fa20e4279e813fc875af8c210570c299b07844fdbd4726394c14781a4",
+        "pass2_hash": "0x2e474b6fa20e4279e813fc875af8c210570c299b07844fdbd4726394c14781a4",
+        "match": true,
+        "pass1_ms": 11.524,
+        "pass2_ms": 10.244
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_51",
+      "operator_id": "PARADOX_51",
+      "operator_name": "Side-Channel Power Analysis on Prover",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x928a8d41d5547fb943c5b6fe4a807c45039dc44b80b613f85248cf14edd6a26f",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.757,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.364Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.757)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x928a8d41d5547fb943c5b6fe4a807c45039dc44b80b613f85248cf14edd6a26f\")\n)",
+      "replay": {
+        "pass1_hash": "0xfc050e1e238b252d1dfa21c23baccc3e3c6bb5e0de51765e085930bb1b86d57f",
+        "pass2_hash": "0xfc050e1e238b252d1dfa21c23baccc3e3c6bb5e0de51765e085930bb1b86d57f",
+        "match": true,
+        "pass1_ms": 9.757,
+        "pass2_ms": 10.982
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_52",
+      "operator_id": "PARADOX_52",
+      "operator_name": "Merkle Membership Proof Sibling Injection",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0xa9c04321157aa7fc8b48dc54d127fdb9b95ca7d45515e969c4a3f8e3b2ed994b",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.482,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.386Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.482)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xa9c04321157aa7fc8b48dc54d127fdb9b95ca7d45515e969c4a3f8e3b2ed994b\")\n)",
+      "replay": {
+        "pass1_hash": "0xab386d55c2e03f6455880f539a965c8b8683dbc52d850977d31ec031a23a7d99",
+        "pass2_hash": "0xab386d55c2e03f6455880f539a965c8b8683dbc52d850977d31ec031a23a7d99",
+        "match": true,
+        "pass1_ms": 10.482,
+        "pass2_ms": 10.611
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_53",
+      "operator_id": "PARADOX_53",
+      "operator_name": "Polynomial Degree Overflow in PLONK Proofs",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x13c3dff2dc77e673118f6478563dd9af2f4b5110fcf65e534ca158f56d69e311",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.693,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.406Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.693)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x13c3dff2dc77e673118f6478563dd9af2f4b5110fcf65e534ca158f56d69e311\")\n)",
+      "replay": {
+        "pass1_hash": "0x04d0a5c87044f58710dc00bc9fdbeabdd1bfb9f5130d35a9cf6a87f00841300a",
+        "pass2_hash": "0x04d0a5c87044f58710dc00bc9fdbeabdd1bfb9f5130d35a9cf6a87f00841300a",
+        "match": true,
+        "pass1_ms": 10.693,
+        "pass2_ms": 9.763
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_54",
+      "operator_id": "PARADOX_54",
+      "operator_name": "Prover Livelock on Large R1CS Constraints",
+      "category": "ZeroKnowledge",
+      "smt_sha256": "0x1ae215185cb8e4adc1ce5f7442f43709d1bc8849e828ad00a1eabb0d39190c80",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.597,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.429Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.597)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x1ae215185cb8e4adc1ce5f7442f43709d1bc8849e828ad00a1eabb0d39190c80\")\n)",
+      "replay": {
+        "pass1_hash": "0x2f27e6e223b72476d6385545eb3979e9990f4b01427b78d951a57de2e401422c",
+        "pass2_hash": "0x2f27e6e223b72476d6385545eb3979e9990f4b01427b78d951a57de2e401422c",
+        "match": true,
+        "pass1_ms": 9.597,
+        "pass2_ms": 13.036
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_03",
+      "operator_id": "PARADOX_03",
+      "operator_name": "Reentrancy in Token Burning Logic",
+      "category": "Reclamation",
+      "smt_sha256": "0x9fcd57afa9c9abbfb616b42998a87a1a72a0d3f9caf7e209ed6f6da36e249703",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 14.037,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.453Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 14.037)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x9fcd57afa9c9abbfb616b42998a87a1a72a0d3f9caf7e209ed6f6da36e249703\")\n)",
+      "replay": {
+        "pass1_hash": "0xa99026f570eb92720174171cd3a7b0e977d74e8085a187fdfdcd66470ff379a6",
+        "pass2_hash": "0xa99026f570eb92720174171cd3a7b0e977d74e8085a187fdfdcd66470ff379a6",
+        "match": true,
+        "pass1_ms": 14.037,
+        "pass2_ms": 9.944
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_04",
+      "operator_id": "PARADOX_04",
+      "operator_name": "Double-Harvest Waste Verification Lag",
+      "category": "Reclamation",
+      "smt_sha256": "0xfac6664ac1ce252a42c45d18f5241704e6afd80f5ccaf65a3932ec7b63f8f41c",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 11.138,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.476Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 11.138)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xfac6664ac1ce252a42c45d18f5241704e6afd80f5ccaf65a3932ec7b63f8f41c\")\n)",
+      "replay": {
+        "pass1_hash": "0x54711798309a05edc2b9821d982bad285cdb822ac7d8823e735ae3c259ffe217",
+        "pass2_hash": "0x54711798309a05edc2b9821d982bad285cdb822ac7d8823e735ae3c259ffe217",
+        "match": true,
+        "pass1_ms": 11.138,
+        "pass2_ms": 11.178
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_07",
+      "operator_id": "PARADOX_07",
+      "operator_name": "Unbonded Collateral Liquidation Squeeze",
+      "category": "Reclamation",
+      "smt_sha256": "0x6c9ac5df76cd8fe5b22b5dbeefe0634306328e69e5f0603e76588049a399eb97",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 11.018,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.497Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 11.018)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x6c9ac5df76cd8fe5b22b5dbeefe0634306328e69e5f0603e76588049a399eb97\")\n)",
+      "replay": {
+        "pass1_hash": "0xb411d10af3f9538e8deff09acdd52915c0a4d620b42be301b3e0e00ff5605a8b",
+        "pass2_hash": "0xb411d10af3f9538e8deff09acdd52915c0a4d620b42be301b3e0e00ff5605a8b",
+        "match": true,
+        "pass1_ms": 11.018,
+        "pass2_ms": 10.321
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_10",
+      "operator_id": "PARADOX_10",
+      "operator_name": "Flash Loan Extraction on Reclamation Pools",
+      "category": "Reclamation",
+      "smt_sha256": "0xcda07f572d25c24a0183d8f7687df63d58ed07f45538c1910bb0ce80ed2b1e9a",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.136,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.518Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.136)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xcda07f572d25c24a0183d8f7687df63d58ed07f45538c1910bb0ce80ed2b1e9a\")\n)",
+      "replay": {
+        "pass1_hash": "0x85209cf8312fe25228d6c85cae2a66e2dac8bec2e8c236a6275a79885189bbe7",
+        "pass2_hash": "0x85209cf8312fe25228d6c85cae2a66e2dac8bec2e8c236a6275a79885189bbe7",
+        "match": true,
+        "pass1_ms": 10.136,
+        "pass2_ms": 10.203
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_16",
+      "operator_id": "PARADOX_16",
+      "operator_name": "Load Cell Creep Measurement Distortion",
+      "category": "Reclamation",
+      "smt_sha256": "0xe02664435b1205e3d98e259658e3dcaf0136255c265e093dd14223e9b40fb3c9",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.298,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.538Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.298)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xe02664435b1205e3d98e259658e3dcaf0136255c265e093dd14223e9b40fb3c9\")\n)",
+      "replay": {
+        "pass1_hash": "0xd33509f7a10ca81c0e42dce3a5c227fbd4740bdbc5a02e804a69adf87f831832",
+        "pass2_hash": "0xd33509f7a10ca81c0e42dce3a5c227fbd4740bdbc5a02e804a69adf87f831832",
+        "match": true,
+        "pass1_ms": 9.298,
+        "pass2_ms": 10.551
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_21",
+      "operator_id": "PARADOX_21",
+      "operator_name": "Token Velocity Runaway Inflation",
+      "category": "Reclamation",
+      "smt_sha256": "0xadc84dfd5b8540cbc224609e63b467dd42aa7f22896d3a21ba503f832aaa0b62",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.356,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.557Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.356)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xadc84dfd5b8540cbc224609e63b467dd42aa7f22896d3a21ba503f832aaa0b62\")\n)",
+      "replay": {
+        "pass1_hash": "0xc6e8975ee3531eabaf04c0e93b5b27db08ce2ca2a53405cb1c44736a968a2bc4",
+        "pass2_hash": "0xc6e8975ee3531eabaf04c0e93b5b27db08ce2ca2a53405cb1c44736a968a2bc4",
+        "match": true,
+        "pass1_ms": 8.356,
+        "pass2_ms": 10.723
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_26",
+      "operator_id": "PARADOX_26",
+      "operator_name": "Denial of Service via Zero-Weight Batches",
+      "category": "Reclamation",
+      "smt_sha256": "0x4771e8681a6530e3a819beb87ff32a6e39a22e01b2e6c8b4b8b6e447218e0ce4",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.529,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.576Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.529)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x4771e8681a6530e3a819beb87ff32a6e39a22e01b2e6c8b4b8b6e447218e0ce4\")\n)",
+      "replay": {
+        "pass1_hash": "0x87f74c63fa145d3ce080a1c7c2f6bfb593203484182bcf9efb5d18ec81b39f1b",
+        "pass2_hash": "0x87f74c63fa145d3ce080a1c7c2f6bfb593203484182bcf9efb5d18ec81b39f1b",
+        "match": true,
+        "pass1_ms": 9.529,
+        "pass2_ms": 9.993
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_29",
+      "operator_id": "PARADOX_29",
+      "operator_name": "Waste Classifier Visual Camouflage",
+      "category": "Reclamation",
+      "smt_sha256": "0x2bfec4119287f963131d9587e0834f0f7c19245a79ad82e2a3a1646ed8beeeb1",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.767,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.596Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.767)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x2bfec4119287f963131d9587e0834f0f7c19245a79ad82e2a3a1646ed8beeeb1\")\n)",
+      "replay": {
+        "pass1_hash": "0x4c23595b9b8321da696e1b0b79840be5101bbdec6b5245745e4a9669f3b59b5b",
+        "pass2_hash": "0x4c23595b9b8321da696e1b0b79840be5101bbdec6b5245745e4a9669f3b59b5b",
+        "match": true,
+        "pass1_ms": 9.767,
+        "pass2_ms": 9.983
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_31",
+      "operator_id": "PARADOX_31",
+      "operator_name": "Scale Tare-Weight Manipulation",
+      "category": "Reclamation",
+      "smt_sha256": "0x9a1e692032048579e607c4bf2258a70917d02086453a3a098f0910c88366a12e",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.47,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.617Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.470)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x9a1e692032048579e607c4bf2258a70917d02086453a3a098f0910c88366a12e\")\n)",
+      "replay": {
+        "pass1_hash": "0xa1cb5f962a998ae0690608c434bfdf225df00abdcf8ea2edc2f050acb80a2a82",
+        "pass2_hash": "0xa1cb5f962a998ae0690608c434bfdf225df00abdcf8ea2edc2f050acb80a2a82",
+        "match": true,
+        "pass1_ms": 10.47,
+        "pass2_ms": 9.639
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_55",
+      "operator_id": "PARADOX_55",
+      "operator_name": "Composite Multi-Material Tare Confusion",
+      "category": "Reclamation",
+      "smt_sha256": "0x7729a760d43b8088abaae79168141ad008a3e32ef8d901cc272dfc069bf4cef1",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.072,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.639Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.072)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x7729a760d43b8088abaae79168141ad008a3e32ef8d901cc272dfc069bf4cef1\")\n)",
+      "replay": {
+        "pass1_hash": "0xfdddc02229770c5ad0fd8afeb189187e34a412fd370dccabe42d95630b321942",
+        "pass2_hash": "0xfdddc02229770c5ad0fd8afeb189187e34a412fd370dccabe42d95630b321942",
+        "match": true,
+        "pass1_ms": 10.072,
+        "pass2_ms": 12.013
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_56",
+      "operator_id": "PARADOX_56",
+      "operator_name": "Caloric Over-Estimation in Thermal Incineration",
+      "category": "Reclamation",
+      "smt_sha256": "0x2a2e7c42aba1b7cd623b411caa99c3ecdb13e93ec5682c35ee77386af1d943ce",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.343,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.659Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.343)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x2a2e7c42aba1b7cd623b411caa99c3ecdb13e93ec5682c35ee77386af1d943ce\")\n)",
+      "replay": {
+        "pass1_hash": "0x777d330d5efb9b108cf8aa27e3bac6294b3cba3147c839c45925df80b3023e71",
+        "pass2_hash": "0x777d330d5efb9b108cf8aa27e3bac6294b3cba3147c839c45925df80b3023e71",
+        "match": true,
+        "pass1_ms": 10.343,
+        "pass2_ms": 9.703
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_57",
+      "operator_id": "PARADOX_57",
+      "operator_name": "Reclamation Ledger Backpressure Congestion",
+      "category": "Reclamation",
+      "smt_sha256": "0xfdd0e8d1e6a7ad940e2d2503f261edee31dc740d9ae35527adbe4949f0b1d9f8",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.295,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.682Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.295)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xfdd0e8d1e6a7ad940e2d2503f261edee31dc740d9ae35527adbe4949f0b1d9f8\")\n)",
+      "replay": {
+        "pass1_hash": "0xe63268b66ec9410789c9bf764bdc29dcf69d4a6a245d89308355a49df7900f05",
+        "pass2_hash": "0xe63268b66ec9410789c9bf764bdc29dcf69d4a6a245d89308355a49df7900f05",
+        "match": true,
+        "pass1_ms": 10.295,
+        "pass2_ms": 12.043
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_58",
+      "operator_id": "PARADOX_58",
+      "operator_name": "Secondary Smelting Token Multiplier Variance",
+      "category": "Reclamation",
+      "smt_sha256": "0x1eb08a9a005ee71e632630f78bd3a67be56752c2c378d7ed0b27fa6c13cda1e3",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.927,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.702Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.927)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x1eb08a9a005ee71e632630f78bd3a67be56752c2c378d7ed0b27fa6c13cda1e3\")\n)",
+      "replay": {
+        "pass1_hash": "0x186f3de0747798e755ace416cfc168ee943b62295078b9a3081fb42c55bb43a3",
+        "pass2_hash": "0x186f3de0747798e755ace416cfc168ee943b62295078b9a3081fb42c55bb43a3",
+        "match": true,
+        "pass1_ms": 9.927,
+        "pass2_ms": 9.909
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_59",
+      "operator_id": "PARADOX_59",
+      "operator_name": "Hazardous Contaminant Ingestion Risk",
+      "category": "Reclamation",
+      "smt_sha256": "0xafda465fb426e83e1bd371e3d0f472704ffb3e2d85c401990b0311a48c08e334",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.774,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.722Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.774)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xafda465fb426e83e1bd371e3d0f472704ffb3e2d85c401990b0311a48c08e334\")\n)",
+      "replay": {
+        "pass1_hash": "0x125b62694e934df754bd22956462e749e450d62042ce808c96aed7d59a0bc78d",
+        "pass2_hash": "0x125b62694e934df754bd22956462e749e450d62042ce808c96aed7d59a0bc78d",
+        "match": true,
+        "pass1_ms": 9.774,
+        "pass2_ms": 10.155
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_60",
+      "operator_id": "PARADOX_60",
+      "operator_name": "Cross-Jurisdictional Waste Recycling Double-Counting",
+      "category": "Reclamation",
+      "smt_sha256": "0x9b02667fe2c04a9e77bdc88252b177087aa1023dcddd86d1ac189fcb9711f1f6",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.411,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver / QF_LIA)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.742Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.411)\n  (logic \"SMT-LIB v2.6 (Z3 Solver / QF_LIA)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x9b02667fe2c04a9e77bdc88252b177087aa1023dcddd86d1ac189fcb9711f1f6\")\n)",
+      "replay": {
+        "pass1_hash": "0x12c83e8c7fe7bbf95152c0b236b13abbdd6f89341c97e751f8fb94c50ae861da",
+        "pass2_hash": "0x12c83e8c7fe7bbf95152c0b236b13abbdd6f89341c97e751f8fb94c50ae861da",
+        "match": true,
+        "pass1_ms": 10.411,
+        "pass2_ms": 9.833
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_02",
+      "operator_id": "PARADOX_02",
+      "operator_name": "Sybil Node Registration Storm",
+      "category": "Consensus",
+      "smt_sha256": "0xbbc1c981ac07b16621f28ff9d902d943b7d5dc40b534b4d065fee087ebf02e68",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 36.591,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.788Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 36.591)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xbbc1c981ac07b16621f28ff9d902d943b7d5dc40b534b4d065fee087ebf02e68\")\n)",
+      "replay": {
+        "pass1_hash": "0x09b5a52e108836800af1c0501aa63b92dd41f2b751af7403505d714e5a73fdeb",
+        "pass2_hash": "0x09b5a52e108836800af1c0501aa63b92dd41f2b751af7403505d714e5a73fdeb",
+        "match": true,
+        "pass1_ms": 36.591,
+        "pass2_ms": 8.945
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_06",
+      "operator_id": "PARADOX_06",
+      "operator_name": "Out-of-Order Block Propagation",
+      "category": "Consensus",
+      "smt_sha256": "0xa3bfb0468ca5a84762df1abdb964cf9898e6f2a64be5b6cc5103b1acd8c7024f",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.81,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.805Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.810)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xa3bfb0468ca5a84762df1abdb964cf9898e6f2a64be5b6cc5103b1acd8c7024f\")\n)",
+      "replay": {
+        "pass1_hash": "0x6c2a7ecc9f7ea65cf4d667fd14d9ce2c4ab637d2d600c0956f720ce15ff69cd1",
+        "pass2_hash": "0x6c2a7ecc9f7ea65cf4d667fd14d9ce2c4ab637d2d600c0956f720ce15ff69cd1",
+        "match": true,
+        "pass1_ms": 8.81,
+        "pass2_ms": 8.483
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_08",
+      "operator_id": "PARADOX_08",
+      "operator_name": "Byzantine Harvester Fault Propagation",
+      "category": "Consensus",
+      "smt_sha256": "0x3ef0736a0632a4ce93772b3c09a8a16f73ccb186337749ffd71a0d0c6d6aed68",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.696,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.824Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.696)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x3ef0736a0632a4ce93772b3c09a8a16f73ccb186337749ffd71a0d0c6d6aed68\")\n)",
+      "replay": {
+        "pass1_hash": "0x783435591ace72cb9f33745630644b0ae0d44c2a4500ea68d8eed0e0660cedd8",
+        "pass2_hash": "0x783435591ace72cb9f33745630644b0ae0d44c2a4500ea68d8eed0e0660cedd8",
+        "match": true,
+        "pass1_ms": 9.696,
+        "pass2_ms": 8.503
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_13",
+      "operator_id": "PARADOX_13",
+      "operator_name": "Asynchronous Time Warp Timestamp Drift",
+      "category": "Consensus",
+      "smt_sha256": "0x99fe4bc29365c20ba5e7c4a850dc2c57067c867f85d378c6b277be3f375f892d",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.72,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.841Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.720)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x99fe4bc29365c20ba5e7c4a850dc2c57067c867f85d378c6b277be3f375f892d\")\n)",
+      "replay": {
+        "pass1_hash": "0x842768fd2ae781670f661314242d7f3ffa8d8157ff13120eba7cb6357e760d53",
+        "pass2_hash": "0x842768fd2ae781670f661314242d7f3ffa8d8157ff13120eba7cb6357e760d53",
+        "match": true,
+        "pass1_ms": 8.72,
+        "pass2_ms": 8.582
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_19",
+      "operator_id": "PARADOX_19",
+      "operator_name": "Selfish Mining Block Suppression",
+      "category": "Consensus",
+      "smt_sha256": "0x28f8a8ffa423e2eb5756e6f589e5ee3f7a6e46eee4515813ad6714c8a652f350",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 7.684,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.859Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 7.684)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x28f8a8ffa423e2eb5756e6f589e5ee3f7a6e46eee4515813ad6714c8a652f350\")\n)",
+      "replay": {
+        "pass1_hash": "0x1fd69bc82b11d474f169141400c8b65486da0de8bc7cba3166786a1b15f57335",
+        "pass2_hash": "0x1fd69bc82b11d474f169141400c8b65486da0de8bc7cba3166786a1b15f57335",
+        "match": true,
+        "pass1_ms": 7.684,
+        "pass2_ms": 10.187
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_23",
+      "operator_id": "PARADOX_23",
+      "operator_name": "Cross-Fork Memory Drift",
+      "category": "Consensus",
+      "smt_sha256": "0x604a7ec216bab572b848485f617425441ee3159c534c0ad3715b360e448a51aa",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.377,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.875Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.377)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x604a7ec216bab572b848485f617425441ee3159c534c0ad3715b360e448a51aa\")\n)",
+      "replay": {
+        "pass1_hash": "0x4fda9001f77476079db165a9fe488e427030e4373191305d983e77242c95d33e",
+        "pass2_hash": "0x4fda9001f77476079db165a9fe488e427030e4373191305d983e77242c95d33e",
+        "match": true,
+        "pass1_ms": 8.377,
+        "pass2_ms": 7.334
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_24",
+      "operator_id": "PARADOX_24",
+      "operator_name": "Orphaned Transaction Mempool Exhaustion",
+      "category": "Consensus",
+      "smt_sha256": "0x232fc73367f074624788db4618f610c4d6f49b9c8a5ad65b1d59d7157cc9f6e5",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.814,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.893Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.814)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x232fc73367f074624788db4618f610c4d6f49b9c8a5ad65b1d59d7157cc9f6e5\")\n)",
+      "replay": {
+        "pass1_hash": "0xe08dc0db764f7dfc74674b917027cc49337c9fbb275109d27677afdd7beb618e",
+        "pass2_hash": "0xe08dc0db764f7dfc74674b917027cc49337c9fbb275109d27677afdd7beb618e",
+        "match": true,
+        "pass1_ms": 8.814,
+        "pass2_ms": 9.002
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_61",
+      "operator_id": "PARADOX_61",
+      "operator_name": "Long-Range Historical State Rewrite",
+      "category": "Consensus",
+      "smt_sha256": "0x56fe1a7733b65ab6034e5c85b0b1a79efb60b870b0ee009c04e2a0f770e47dad",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.187,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.911Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.187)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x56fe1a7733b65ab6034e5c85b0b1a79efb60b870b0ee009c04e2a0f770e47dad\")\n)",
+      "replay": {
+        "pass1_hash": "0x868e3f01e43a36c2b37b8dd51b308540eaccc47dc3b29a03d19f6bd90b6eaeee",
+        "pass2_hash": "0x868e3f01e43a36c2b37b8dd51b308540eaccc47dc3b29a03d19f6bd90b6eaeee",
+        "match": true,
+        "pass1_ms": 9.187,
+        "pass2_ms": 9.096
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_62",
+      "operator_id": "PARADOX_62",
+      "operator_name": "Validator Stake Weight Micro-Drift",
+      "category": "Consensus",
+      "smt_sha256": "0xa8633120cae34449e2a6099eb73cd7663fde04703d6b3ac07d9a68d3a539abbb",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.197,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.928Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.197)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xa8633120cae34449e2a6099eb73cd7663fde04703d6b3ac07d9a68d3a539abbb\")\n)",
+      "replay": {
+        "pass1_hash": "0x43919b3290cc4369e6ce1b7a8fe5a98a31fedf0049f616982629207676c14ed0",
+        "pass2_hash": "0x43919b3290cc4369e6ce1b7a8fe5a98a31fedf0049f616982629207676c14ed0",
+        "match": true,
+        "pass1_ms": 8.197,
+        "pass2_ms": 7.953
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_63",
+      "operator_id": "PARADOX_63",
+      "operator_name": "Gossip Network Partition Eclipse Attack",
+      "category": "Consensus",
+      "smt_sha256": "0x89bfa67edb04c7e425a2a365f8bcfedead26db9c0f221cbd52b70fa3f814b636",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.426,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.947Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.426)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x89bfa67edb04c7e425a2a365f8bcfedead26db9c0f221cbd52b70fa3f814b636\")\n)",
+      "replay": {
+        "pass1_hash": "0x97c9e62030ed9ea4cb6abb065a415ffda058d9d56e26827ff19d5f6527b96715",
+        "pass2_hash": "0x97c9e62030ed9ea4cb6abb065a415ffda058d9d56e26827ff19d5f6527b96715",
+        "match": true,
+        "pass1_ms": 9.426,
+        "pass2_ms": 10.196
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_64",
+      "operator_id": "PARADOX_64",
+      "operator_name": "Mempool Frontrunning MEV Arbitrage",
+      "category": "Consensus",
+      "smt_sha256": "0x91a2c3e5a4862a53aa8a0075624577f70e2345a32754667d32b3b5b06d2ba847",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.599,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.968Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.599)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x91a2c3e5a4862a53aa8a0075624577f70e2345a32754667d32b3b5b06d2ba847\")\n)",
+      "replay": {
+        "pass1_hash": "0x2277503bcc07448b84d5ab721fda87e9ba2d14d0e57e68a303108345ee6c2fd2",
+        "pass2_hash": "0x2277503bcc07448b84d5ab721fda87e9ba2d14d0e57e68a303108345ee6c2fd2",
+        "match": true,
+        "pass1_ms": 9.599,
+        "pass2_ms": 10.89
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_65",
+      "operator_id": "PARADOX_65",
+      "operator_name": "Pruning Sibling State Desync in Merkle Tries",
+      "category": "Consensus",
+      "smt_sha256": "0xb4967ef0839dcd80febdbc692a1ae6a294664ca4bdd1e29f0d4813012c63fddd",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 9.018,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:23.987Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 9.018)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xb4967ef0839dcd80febdbc692a1ae6a294664ca4bdd1e29f0d4813012c63fddd\")\n)",
+      "replay": {
+        "pass1_hash": "0xdd5bba739a5aea6bc4eb9914af8f942cc7e58510eb2b0b7cd1e2342261001e22",
+        "pass2_hash": "0xdd5bba739a5aea6bc4eb9914af8f942cc7e58510eb2b0b7cd1e2342261001e22",
+        "match": true,
+        "pass1_ms": 9.018,
+        "pass2_ms": 9.712
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_66",
+      "operator_id": "PARADOX_66",
+      "operator_name": "Split-Brain Leader Election Livelock",
+      "category": "Consensus",
+      "smt_sha256": "0xb0b29179f8360bcf3aa72282ada32870f7f0b4f5c68347408634629a874c3788",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.664,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.004Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.664)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xb0b29179f8360bcf3aa72282ada32870f7f0b4f5c68347408634629a874c3788\")\n)",
+      "replay": {
+        "pass1_hash": "0x7d4b5e91ea1bc4c304b904fe5580329e1a09536d698b16c01deb90930cdd9999",
+        "pass2_hash": "0x7d4b5e91ea1bc4c304b904fe5580329e1a09536d698b16c01deb90930cdd9999",
+        "match": true,
+        "pass1_ms": 8.664,
+        "pass2_ms": 8.35
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_67",
+      "operator_id": "PARADOX_67",
+      "operator_name": "Waste Classification AI Hallucination",
+      "category": "Consensus",
+      "smt_sha256": "0xbd0119cf9ec0f82e4f8628fadeb0877c4038747f229bb45c597637a0feb0cb82",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.539,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.022Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.539)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xbd0119cf9ec0f82e4f8628fadeb0877c4038747f229bb45c597637a0feb0cb82\")\n)",
+      "replay": {
+        "pass1_hash": "0x7ea31203931e124b838d1e594efd9d04c5b6e8964262de04dc87d4ad7f8e48aa",
+        "pass2_hash": "0x7ea31203931e124b838d1e594efd9d04c5b6e8964262de04dc87d4ad7f8e48aa",
+        "match": true,
+        "pass1_ms": 8.539,
+        "pass2_ms": 9.481
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_68",
+      "operator_id": "PARADOX_68",
+      "operator_name": "Consensus Snapshot State Buffer Overflow",
+      "category": "Consensus",
+      "smt_sha256": "0x105f77f0b614ed8b30a9e09fcb905dccd362fd4d34a0085e645bbbbe0a111ad7",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 8.544,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.038Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 8.544)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x105f77f0b614ed8b30a9e09fcb905dccd362fd4d34a0085e645bbbbe0a111ad7\")\n)",
+      "replay": {
+        "pass1_hash": "0x069c724c045bec830b47c8d76a4c975d346311ea7ade424d2169da9471973f2b",
+        "pass2_hash": "0x069c724c045bec830b47c8d76a4c975d346311ea7ade424d2169da9471973f2b",
+        "match": true,
+        "pass1_ms": 8.544,
+        "pass2_ms": 6.907
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_05",
+      "operator_id": "PARADOX_05",
+      "operator_name": "Ephemeral IPC Socket Hijacking",
+      "category": "Hardware",
+      "smt_sha256": "0x5aa1699703aa0ce717b75c3e1055b21180c38491a773a6c39de8ef31e2dcaed7",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.497,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.045Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.497)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x5aa1699703aa0ce717b75c3e1055b21180c38491a773a6c39de8ef31e2dcaed7\")\n)",
+      "replay": {
+        "pass1_hash": "0x32255463fc844568cfbe3569b5ba71bbfee43d79ef19c7aeb15c2928e1d0f907",
+        "pass2_hash": "0x32255463fc844568cfbe3569b5ba71bbfee43d79ef19c7aeb15c2928e1d0f907",
+        "match": true,
+        "pass1_ms": 3.497,
+        "pass2_ms": 3.842
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_14",
+      "operator_id": "PARADOX_14",
+      "operator_name": "Corrupt Vault JSON Encoding Deserialization",
+      "category": "Hardware",
+      "smt_sha256": "0xa37e03abba833db00966c3bc47e66181f366485329065618ff0a9de50fd51cc5",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.409,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.053Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.409)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xa37e03abba833db00966c3bc47e66181f366485329065618ff0a9de50fd51cc5\")\n)",
+      "replay": {
+        "pass1_hash": "0xdf9e0ecc0dda59e5e0827c382b6c448d309c574fc7e548cdda396f5182c58ba9",
+        "pass2_hash": "0xdf9e0ecc0dda59e5e0827c382b6c448d309c574fc7e548cdda396f5182c58ba9",
+        "match": true,
+        "pass1_ms": 3.409,
+        "pass2_ms": 3.7
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_15",
+      "operator_id": "PARADOX_15",
+      "operator_name": "Cross-Site Telemetry Data Leakage",
+      "category": "Hardware",
+      "smt_sha256": "0x2dc8aaac2c06ddaa9ad4f3b8b274bc307440334d321e02472548aad77f5b5a65",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.817,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.060Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.817)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x2dc8aaac2c06ddaa9ad4f3b8b274bc307440334d321e02472548aad77f5b5a65\")\n)",
+      "replay": {
+        "pass1_hash": "0x057596a7097c6ce72e26c4c2ecc01104afdd34c6247dbdcd355ad99b57ffb832",
+        "pass2_hash": "0x057596a7097c6ce72e26c4c2ecc01104afdd34c6247dbdcd355ad99b57ffb832",
+        "match": true,
+        "pass1_ms": 3.817,
+        "pass2_ms": 3.776
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_18",
+      "operator_id": "PARADOX_18",
+      "operator_name": "Harvester GPS Spoofing Deviation",
+      "category": "Hardware",
+      "smt_sha256": "0x4bfdda8c0e2ffbb6e94be28ec5fe5f21bf6819fa9cd1d407b215a90f4eb03a21",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 4.128,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.068Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 4.128)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x4bfdda8c0e2ffbb6e94be28ec5fe5f21bf6819fa9cd1d407b215a90f4eb03a21\")\n)",
+      "replay": {
+        "pass1_hash": "0x82721077e9cc48519a74fd44ebde35f15d2f8d411b197ab010d30b2a40103ecd",
+        "pass2_hash": "0x82721077e9cc48519a74fd44ebde35f15d2f8d411b197ab010d30b2a40103ecd",
+        "match": true,
+        "pass1_ms": 4.128,
+        "pass2_ms": 3.445
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_22",
+      "operator_id": "PARADOX_22",
+      "operator_name": "Malicious APK Binary Modification",
+      "category": "Hardware",
+      "smt_sha256": "0x74775174ec901ec49c433ae95b58a5e1fda2b774aa42ee72751612f3dd7c465e",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.855,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.075Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.855)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x74775174ec901ec49c433ae95b58a5e1fda2b774aa42ee72751612f3dd7c465e\")\n)",
+      "replay": {
+        "pass1_hash": "0x6fdab990be43643077fad9d6bc5203fa86964d43f0adc01f0b51d65cb797937a",
+        "pass2_hash": "0x6fdab990be43643077fad9d6bc5203fa86964d43f0adc01f0b51d65cb797937a",
+        "match": true,
+        "pass1_ms": 3.855,
+        "pass2_ms": 2.975
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_27",
+      "operator_id": "PARADOX_27",
+      "operator_name": "Asymmetrical Validator Network Latency",
+      "category": "Hardware",
+      "smt_sha256": "0x15e91193f71a33b542301bb60c3900b649f32c3bf87ca2d947449c4da08580ca",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.366,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.083Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.366)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x15e91193f71a33b542301bb60c3900b649f32c3bf87ca2d947449c4da08580ca\")\n)",
+      "replay": {
+        "pass1_hash": "0x5ec236ee94387cbe19814c28e7f4968633b30fad18cf84ce5a8b6fd46dbac5d0",
+        "pass2_hash": "0x5ec236ee94387cbe19814c28e7f4968633b30fad18cf84ce5a8b6fd46dbac5d0",
+        "match": true,
+        "pass1_ms": 3.366,
+        "pass2_ms": 4.192
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_69",
+      "operator_id": "PARADOX_69",
+      "operator_name": "Ambient Sunlight Interference on Bin Optical Sensors",
+      "category": "Hardware",
+      "smt_sha256": "0x0fb41fffee519c64e0839262684200c09a82bc7d61324c18c8df912e3a9432ae",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.662,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.090Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.662)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x0fb41fffee519c64e0839262684200c09a82bc7d61324c18c8df912e3a9432ae\")\n)",
+      "replay": {
+        "pass1_hash": "0x26e8665a5e503761288b4f2f7b4ca75a59335f2b09a4d7a398b8a037d67162ad",
+        "pass2_hash": "0x26e8665a5e503761288b4f2f7b4ca75a59335f2b09a4d7a398b8a037d67162ad",
+        "match": true,
+        "pass1_ms": 3.662,
+        "pass2_ms": 3.596
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_70",
+      "operator_id": "PARADOX_70",
+      "operator_name": "Battery Voltage Droop Load Cell Distortion",
+      "category": "Hardware",
+      "smt_sha256": "0xb7655ccacabcf39e3cffac280ebca4ab993296313794e431d0f866a795292d5a",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 4.13,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.098Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 4.130)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xb7655ccacabcf39e3cffac280ebca4ab993296313794e431d0f866a795292d5a\")\n)",
+      "replay": {
+        "pass1_hash": "0xf2b685784e9c13f4086310699a39196214253d61b83a6f7b7af82b75b509978b",
+        "pass2_hash": "0xf2b685784e9c13f4086310699a39196214253d61b83a6f7b7af82b75b509978b",
+        "match": true,
+        "pass1_ms": 4.13,
+        "pass2_ms": 3.596
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_71",
+      "operator_id": "PARADOX_71",
+      "operator_name": "BLE Burst Telemetry Packet Drop In Field Hubs",
+      "category": "Hardware",
+      "smt_sha256": "0x96f12a88e031b474baead1c86f15e307c99cdacb75ffa82153c952554900e0a4",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.865,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.105Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.865)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x96f12a88e031b474baead1c86f15e307c99cdacb75ffa82153c952554900e0a4\")\n)",
+      "replay": {
+        "pass1_hash": "0x82dcd7b0e77c36e0557f58bd656eda3fe5ad4649d48c801610df34a53595d612",
+        "pass2_hash": "0x82dcd7b0e77c36e0557f58bd656eda3fe5ad4649d48c801610df34a53595d612",
+        "match": true,
+        "pass1_ms": 3.865,
+        "pass2_ms": 3.37
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_72",
+      "operator_id": "PARADOX_72",
+      "operator_name": "Local Flash Write Wear Page Corruption",
+      "category": "Hardware",
+      "smt_sha256": "0xa20730e97b10e339683e98d22fc5edb0fb97a6292d5d787da26f16d1e8d413b7",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.424,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.111Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.424)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xa20730e97b10e339683e98d22fc5edb0fb97a6292d5d787da26f16d1e8d413b7\")\n)",
+      "replay": {
+        "pass1_hash": "0x640df07d6e3565ebcd848029d9bb11fa12cd2b232448dca2ab5d16c7c9d5974e",
+        "pass2_hash": "0x640df07d6e3565ebcd848029d9bb11fa12cd2b232448dca2ab5d16c7c9d5974e",
+        "match": true,
+        "pass1_ms": 3.424,
+        "pass2_ms": 2.222
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_73",
+      "operator_id": "PARADOX_73",
+      "operator_name": "Thermal Zero-Point Drift in Sub-Zero Arctic Depots",
+      "category": "Hardware",
+      "smt_sha256": "0x030ea137a9c6c588d4fc62f639a5b934997f72360c276130f578a42b717bfaf9",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.901,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.118Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.901)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x030ea137a9c6c588d4fc62f639a5b934997f72360c276130f578a42b717bfaf9\")\n)",
+      "replay": {
+        "pass1_hash": "0x07db28b64255a8edaa8e6a18faa14a03fac13a8e350f6f64938a93282b0c200d",
+        "pass2_hash": "0x07db28b64255a8edaa8e6a18faa14a03fac13a8e350f6f64938a93282b0c200d",
+        "match": true,
+        "pass1_ms": 3.901,
+        "pass2_ms": 3.516
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_74",
+      "operator_id": "PARADOX_74",
+      "operator_name": "Electromagnetic Motor EMI on Scale ADC Lines",
+      "category": "Hardware",
+      "smt_sha256": "0xfb2a7db92d31edce820858633e258d17e88a7d61db264c59770e44b64b0c8810",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.388,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.125Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.388)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xfb2a7db92d31edce820858633e258d17e88a7d61db264c59770e44b64b0c8810\")\n)",
+      "replay": {
+        "pass1_hash": "0x37333aced7f40af01de753d4592ecabe0789cd8cd2555f2ce838b0e7f8e5f565",
+        "pass2_hash": "0x37333aced7f40af01de753d4592ecabe0789cd8cd2555f2ce838b0e7f8e5f565",
+        "match": true,
+        "pass1_ms": 3.388,
+        "pass2_ms": 3.584
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_75",
+      "operator_id": "PARADOX_75",
+      "operator_name": "Acoustic Ground Vibration False-Intake Trigger",
+      "category": "Hardware",
+      "smt_sha256": "0x3dc5a7012d60c0d3430c69876dd260fa7b069bed0d9b0187ee0e3129261c428e",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.625,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.133Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.625)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x3dc5a7012d60c0d3430c69876dd260fa7b069bed0d9b0187ee0e3129261c428e\")\n)",
+      "replay": {
+        "pass1_hash": "0x84606a0c2fa0b452ffbc69399dbd059304c085fe1b2d5d96fdfa979a861a3ab3",
+        "pass2_hash": "0x84606a0c2fa0b452ffbc69399dbd059304c085fe1b2d5d96fdfa979a861a3ab3",
+        "match": true,
+        "pass1_ms": 3.625,
+        "pass2_ms": 3.478
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_76",
+      "operator_id": "PARADOX_76",
+      "operator_name": "Reverse Engineering Harvester Firmware Hex Dump",
+      "category": "Hardware",
+      "smt_sha256": "0x555bea7eace94c093d2580a2a755a89a38a25a35b769d7d5cf863fad2b76e2e8",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 3.575,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.140Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 3.575)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x555bea7eace94c093d2580a2a755a89a38a25a35b769d7d5cf863fad2b76e2e8\")\n)",
+      "replay": {
+        "pass1_hash": "0x137f9946ee04427eb75e9379ebb9014abbe8d38afbe60ead4810348d3206b229",
+        "pass2_hash": "0x137f9946ee04427eb75e9379ebb9014abbe8d38afbe60ead4810348d3206b229",
+        "match": true,
+        "pass1_ms": 3.575,
+        "pass2_ms": 3.435
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_20",
+      "operator_id": "PARADOX_20",
+      "operator_name": "Unauthorized Contract Execution Loop",
+      "category": "Guardianship",
+      "smt_sha256": "0x5e07e57ec749ace938274211a78c2898bc763f58f29d0d96ae72b2ebbd8e0163",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 12.871,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.164Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 12.871)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x5e07e57ec749ace938274211a78c2898bc763f58f29d0d96ae72b2ebbd8e0163\")\n)",
+      "replay": {
+        "pass1_hash": "0xed20ca0acea136818abe231dfbecdcce50359be001efed31a6642e5fe014102e",
+        "pass2_hash": "0xed20ca0acea136818abe231dfbecdcce50359be001efed31a6642e5fe014102e",
+        "match": true,
+        "pass1_ms": 12.871,
+        "pass2_ms": 10.937
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_30",
+      "operator_id": "PARADOX_30",
+      "operator_name": "Automated Bot Harvester Registration",
+      "category": "Guardianship",
+      "smt_sha256": "0x0b86d4cbedae0f22b8d614d377c2cfdbb2e13908445ef80475a46a7d513b0641",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 11.134,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.185Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 11.134)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x0b86d4cbedae0f22b8d614d377c2cfdbb2e13908445ef80475a46a7d513b0641\")\n)",
+      "replay": {
+        "pass1_hash": "0x1040b280d94fcd450e5f4ad60558a5facae8ec9dad57ddd1593fb09b9fdcd838",
+        "pass2_hash": "0x1040b280d94fcd450e5f4ad60558a5facae8ec9dad57ddd1593fb09b9fdcd838",
+        "match": true,
+        "pass1_ms": 11.134,
+        "pass2_ms": 10.38
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_77",
+      "operator_id": "PARADOX_77",
+      "operator_name": "Automated Emergency Brake Override Stalling",
+      "category": "Guardianship",
+      "smt_sha256": "0x0c75486e14ffa260eb158a21c16590bba21495601cff34c5c7591da6f1411760",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.453,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.207Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.453)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x0c75486e14ffa260eb158a21c16590bba21495601cff34c5c7591da6f1411760\")\n)",
+      "replay": {
+        "pass1_hash": "0xfa6d125fde08f6cc0227596252dc199efa850da7fbd2fe1aa04dda0ccb3e0996",
+        "pass2_hash": "0xfa6d125fde08f6cc0227596252dc199efa850da7fbd2fe1aa04dda0ccb3e0996",
+        "match": true,
+        "pass1_ms": 10.453,
+        "pass2_ms": 11.101
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_78",
+      "operator_id": "PARADOX_78",
+      "operator_name": "Automated Contract Runaway Minting",
+      "category": "Guardianship",
+      "smt_sha256": "0x0c02e1527ed03e850300c5efaaa24fbf0c4b101662c41cfa5a299537d1227488",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 12.388,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.231Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 12.388)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x0c02e1527ed03e850300c5efaaa24fbf0c4b101662c41cfa5a299537d1227488\")\n)",
+      "replay": {
+        "pass1_hash": "0x61f72ef61c81f44c0ebb49e2b1526f9285c6800de253359b196c66b7b0a545ca",
+        "pass2_hash": "0x61f72ef61c81f44c0ebb49e2b1526f9285c6800de253359b196c66b7b0a545ca",
+        "match": true,
+        "pass1_ms": 12.388,
+        "pass2_ms": 11.262
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_79",
+      "operator_id": "PARADOX_79",
+      "operator_name": "Cold-Wallet Air-Gapped Signature Timeout",
+      "category": "Guardianship",
+      "smt_sha256": "0xe8201f5815af1ae090be5bc0d9f1b6f1ec5e8da668ace57bfc91663076cb620d",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.571,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.252Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.571)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xe8201f5815af1ae090be5bc0d9f1b6f1ec5e8da668ace57bfc91663076cb620d\")\n)",
+      "replay": {
+        "pass1_hash": "0xa75b441b7995644cfd0e0b888d7c5cac1cba4630a57dcd559e19a9494febd0c3",
+        "pass2_hash": "0xa75b441b7995644cfd0e0b888d7c5cac1cba4630a57dcd559e19a9494febd0c3",
+        "match": true,
+        "pass1_ms": 10.571,
+        "pass2_ms": 10.945
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_80",
+      "operator_id": "PARADOX_80",
+      "operator_name": "Guardian Recovery Escrow Key Expiration",
+      "category": "Guardianship",
+      "smt_sha256": "0xab634f2b4fb6ed89f33cf65fc61bf1a8592c1d616c290480779cc6573ea97254",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.336,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.274Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.336)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xab634f2b4fb6ed89f33cf65fc61bf1a8592c1d616c290480779cc6573ea97254\")\n)",
+      "replay": {
+        "pass1_hash": "0x2687047de039ebe0d1151af25d245b59088b407bdab2bfa55cc890a92cefe3e1",
+        "pass2_hash": "0x2687047de039ebe0d1151af25d245b59088b407bdab2bfa55cc890a92cefe3e1",
+        "match": true,
+        "pass1_ms": 10.336,
+        "pass2_ms": 10.671
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_81",
+      "operator_id": "PARADOX_81",
+      "operator_name": "Multi-Sig Proposal Execution Stasis",
+      "category": "Guardianship",
+      "smt_sha256": "0x54524f76f7d1ad603a1d9c29af4df561503094fd7de2a56ef0fa0fa669693c66",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.674,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.295Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.674)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x54524f76f7d1ad603a1d9c29af4df561503094fd7de2a56ef0fa0fa669693c66\")\n)",
+      "replay": {
+        "pass1_hash": "0xeb941abcc590edd329b261e47cbb310f51f644a711d61cb59c0ac998eef6f26d",
+        "pass2_hash": "0xeb941abcc590edd329b261e47cbb310f51f644a711d61cb59c0ac998eef6f26d",
+        "match": true,
+        "pass1_ms": 10.674,
+        "pass2_ms": 10.948
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_82",
+      "operator_id": "PARADOX_82",
+      "operator_name": "Hardware Security Token Disconnect Mid-Session",
+      "category": "Guardianship",
+      "smt_sha256": "0x7846ac4f82bbaa1eb2915de1202c97802a1caebf3f36936c480d3fe323f844b8",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.818,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.317Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.818)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x7846ac4f82bbaa1eb2915de1202c97802a1caebf3f36936c480d3fe323f844b8\")\n)",
+      "replay": {
+        "pass1_hash": "0x20533b12eba545d044873278ebf0ec4ea0053e7e12eaf3b2011f7688a8362062",
+        "pass2_hash": "0x20533b12eba545d044873278ebf0ec4ea0053e7e12eaf3b2011f7688a8362062",
+        "match": true,
+        "pass1_ms": 10.818,
+        "pass2_ms": 10.484
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_83",
+      "operator_id": "PARADOX_83",
+      "operator_name": "Malicious Smart Contract Upgrade Injection",
+      "category": "Guardianship",
+      "smt_sha256": "0x94e6df964b5d9b06ddbe11c5f9369ffef49b2fb335ffeae466785ed5f71a7e50",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 11.093,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.339Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 11.093)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x94e6df964b5d9b06ddbe11c5f9369ffef49b2fb335ffeae466785ed5f71a7e50\")\n)",
+      "replay": {
+        "pass1_hash": "0x4ea2de99cb96eddff0fa50f6c498cb2fb95fd867494b7124a8fb41ad13e6e43c",
+        "pass2_hash": "0x4ea2de99cb96eddff0fa50f6c498cb2fb95fd867494b7124a8fb41ad13e6e43c",
+        "match": true,
+        "pass1_ms": 11.093,
+        "pass2_ms": 11.403
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_84",
+      "operator_id": "PARADOX_84",
+      "operator_name": "Guardian Coercion Physical Duress Alarm",
+      "category": "Guardianship",
+      "smt_sha256": "0xe2c4f759bfde5bcb0c1f97ed67e12a718a75d4a8fc941bd20448603a4cfa00a2",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 13.687,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.363Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 13.687)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xe2c4f759bfde5bcb0c1f97ed67e12a718a75d4a8fc941bd20448603a4cfa00a2\")\n)",
+      "replay": {
+        "pass1_hash": "0x148af4c6415f2d94b51fc156d3c2462f40f9942632e277af2e6821cfb3bd2ccf",
+        "pass2_hash": "0x148af4c6415f2d94b51fc156d3c2462f40f9942632e277af2e6821cfb3bd2ccf",
+        "match": true,
+        "pass1_ms": 13.687,
+        "pass2_ms": 9.757
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_85",
+      "operator_id": "PARADOX_85",
+      "operator_name": "Rogue AI Operator Autonomous Decision Overruling",
+      "category": "Guardianship",
+      "smt_sha256": "0x6317fb64ae798cc2f4de24cadf43e5334e5a05da7e758f8af96f9937c2a5f0ea",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.469,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.385Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.469)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x6317fb64ae798cc2f4de24cadf43e5334e5a05da7e758f8af96f9937c2a5f0ea\")\n)",
+      "replay": {
+        "pass1_hash": "0x1b2d981b5af901ed470991feb3d974371018d6b9c13546fb5a3c0dc6099c5c18",
+        "pass2_hash": "0x1b2d981b5af901ed470991feb3d974371018d6b9c13546fb5a3c0dc6099c5c18",
+        "match": true,
+        "pass1_ms": 10.469,
+        "pass2_ms": 11.039
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_86",
+      "operator_id": "PARADOX_86",
+      "operator_name": "Unaudited Bytecode Deployment Without Source",
+      "category": "Guardianship",
+      "smt_sha256": "0xa3b93ba20cb6e10894f7aea31028b12584f0b941f1620d5f707de212e30d41eb",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.719,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.408Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.719)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xa3b93ba20cb6e10894f7aea31028b12584f0b941f1620d5f707de212e30d41eb\")\n)",
+      "replay": {
+        "pass1_hash": "0xad068b422bd2a94e81ebeefe9b4f022e33d53afc93f459ea204fb1aba11393df",
+        "pass2_hash": "0xad068b422bd2a94e81ebeefe9b4f022e33d53afc93f459ea204fb1aba11393df",
+        "match": true,
+        "pass1_ms": 10.719,
+        "pass2_ms": 12.249
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_87",
+      "operator_id": "PARADOX_87",
+      "operator_name": "Blind Transaction Signing Exploitation",
+      "category": "Guardianship",
+      "smt_sha256": "0x4d2a1eeb35ea5f1dc2590f75a6673d132b060887573b6486bb270a966ea2ee13",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.656,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.429Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.656)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0x4d2a1eeb35ea5f1dc2590f75a6673d132b060887573b6486bb270a966ea2ee13\")\n)",
+      "replay": {
+        "pass1_hash": "0xb1c92ceea1cdef2b03d1848afe112078ed834de8e3c93037670bcd947e3723cc",
+        "pass2_hash": "0xb1c92ceea1cdef2b03d1848afe112078ed834de8e3c93037670bcd947e3723cc",
+        "match": true,
+        "pass1_ms": 10.656,
+        "pass2_ms": 11.078
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    },
+    {
+      "proof_id": "DFRL_PROVEN_PARADOX_88",
+      "operator_id": "PARADOX_88",
+      "operator_name": "Cold-Start Sovereign Partition Desync",
+      "category": "Guardianship",
+      "smt_sha256": "0xa52892ad28d8a87c057deda1ca92f08c17cab1be66b79e43fe3e8152e62ba9d0",
+      "formal_verifier": "Z3 Theorem Prover (WebAssembly Node Kernel v4.12.2)",
+      "verifier_version": "4.12.2",
+      "execution_status": "UNSAT",
+      "solver_result": "unsat",
+      "execution_duration_ms": 10.266,
+      "solver_configuration": {
+        "logic": "SMT-LIB v2.6 (Z3 Solver)",
+        "timeout_ms": 10000,
+        "proof_mode": true
+      },
+      "timestamp": "2026-09-24T20:39:24.452Z",
+      "raw_output": "unsat\n(\n  (solver \"Z3 Theorem Prover (WebAssembly Node Kernel)\")\n  (version \"4.12.2\")\n  (status \"unsat\")\n  (execution-time-ms 10.266)\n  (logic \"SMT-LIB v2.6 (Z3 Solver)\")\n  (proof-result \"UNSATISFIABLE (Negated conjecture has no models; invariant holds universally)\")\n  (smt-hash \"0xa52892ad28d8a87c057deda1ca92f08c17cab1be66b79e43fe3e8152e62ba9d0\")\n)",
+      "replay": {
+        "pass1_hash": "0x2f90073174423c18b4544404f630b9805ad9554f7ccf009f4e2edceccbb94557",
+        "pass2_hash": "0x2f90073174423c18b4544404f630b9805ad9554f7ccf009f4e2edceccbb94557",
+        "match": true,
+        "pass1_ms": 10.266,
+        "pass2_ms": 12.239
+      },
+      "implementation_correspondence": "MODEL_PROOF_ONLY",
+      "classification": "MACHINE_CHECKED_MODEL_PROOF"
+    }
+  ]
+}
