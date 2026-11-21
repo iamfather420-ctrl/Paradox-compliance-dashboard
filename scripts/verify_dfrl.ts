@@ -23,10 +23,7 @@ async function generateAuditDossier() {
   let mdTable = "| ID | SMT Artifact | Artifact Hash | Z3 Executed | Z3 Result | Replay | Implementation Correspondence | Classification |\n";
   mdTable += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n";
 
-  const spotlightIds = ["PARADOX_01", "PARADOX_03", "PARADOX_08", "PARADOX_09", "PARADOX_49", "PARADOX_61", "PARADOX_77"];
-
   for (const ev of evidence) {
-    const isSpotlight = spotlightIds.includes(ev.operator_id);
     const implCorr = ev.implementation_correspondence;
     mdTable += `| **${ev.operator_id}** | ${ev.category} SMT-LIB | \`${ev.smt_sha256.slice(0, 10)}...${ev.smt_sha256.slice(-6)}\` | ${ev.execution_status === "FORMAL_EXECUTION_NOT_PERFORMED" ? "NO" : "YES"} | **${ev.solver_result.toUpperCase()}** | ${ev.replay.match ? "MATCH" : "DIVERGENCE"} | ${implCorr} | \`${ev.classification}\` |\n`;
   }
@@ -71,17 +68,18 @@ TOTAL EXECUTION TIME:        ${metrics.duration_total_ms} ms
 
 ## 2. FINAL CLASSIFICATION DECLARATION
 
-\`\`\`text
-88/88 CANONICAL OPERATORS PRESENT:             YES
-88/88 SMT ARTIFACTS PRESENT:                   YES
-88/88 Z3 EXECUTED:                             YES
-88/88 Z3 MACHINE-CHECKED:                      YES
-88/88 IMPLEMENTATION-BACKED:                   PARTIAL (7 Direct Spotlight Benchmarks, 81 Architecture Model Proofs)
-88/88 INDEPENDENTLY REPLAYED:                  YES
-DFRL ANTI-FABRICATION CONSTITUTION ENFORCED:   YES
-BATCH VERIFY ALL 88 IS LIVE:                   YES
-CI FORMAL VERIFICATION GATE:                   YES
-\`\`\`
+```text
+CANONICAL OPERATORS PRESENT:             ${evidence.length}/${REAL_88_PARADOX_REGISTRY.length}
+SMT ARTIFACTS PRESENT:                   ${evidence.filter(ev => Boolean(ev.smt_sha256)).length}/${REAL_88_PARADOX_REGISTRY.length}
+Z3 EXECUTION ATTEMPTS:                   ${executedCount}/${REAL_88_PARADOX_REGISTRY.length}
+MACHINE-CHECKED MODEL PROOFS:             ${modelProofCount}/${REAL_88_PARADOX_REGISTRY.length}
+DIRECT IMPLEMENTATION PROOFS:             ${directImplementationProofCount}
+REPLAY MATCHES:                          ${replayMatchCount}/${REAL_88_PARADOX_REGISTRY.length}
+IMPLEMENTATION CORRESPONDENCE:            MODEL_ONLY; NO DIRECT CODE EQUIVALENCE
+ANTI-FABRICATION STATUS:                 PARTIAL; GATES C/E/F/G REQUIRE REAL ADAPTERS
+BATCH VERIFY ALL 88:                     ${evidence.length === REAL_88_PARADOX_REGISTRY.length ? "COMPLETED" : "INCOMPLETE"}
+CI FORMAL VERIFICATION GATE:              ${metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"}
+```
 
 ---
 
@@ -108,16 +106,18 @@ In accordance with Section 13 and 14 of the DFRL Anti-Fabrication Constitution:
     verifier: "Z3 Theorem Prover v4.12.2 (WebAssembly Node Kernel)",
     metrics,
     declarations: {
-      canonical_operators_present: "YES",
-      smt_artifacts_present: "YES",
-      z3_executed: "YES",
-      z3_machine_checked: "YES",
-      implementation_backed: "MODEL_PROOF_ONLY",\n      direct_implementation_proofs: directImplementationProofCount,\n      falsification_and_implementation_gates: "NOT_VERIFIED",
+      canonical_operators_present: evidence.length === REAL_88_PARADOX_REGISTRY.length ? "YES" : "PARTIAL",
+      smt_artifacts_present: evidence.every(ev => Boolean(ev.smt_sha256)) ? "YES" : "PARTIAL",
+      z3_executed: executedCount === evidence.length ? "YES" : "PARTIAL",
+      z3_machine_checked: modelProofCount === evidence.length ? "YES" : "PARTIAL",
+      implementation_backed: "MODEL_PROOF_ONLY",
+      direct_implementation_proofs: directImplementationProofCount,
+      falsification_and_implementation_gates: "NOT_VERIFIED",
       independently_replayed: replayMatchCount === evidence.length ? "YES" : "PARTIAL",
       anti_fabrication_enforced: "PARTIAL",
-      batch_verify_live: "YES",
-      ci_gate_enforced: "YES"
-    },
+      batch_verify_live: evidence.length === REAL_88_PARADOX_REGISTRY.length ? "YES" : "NO",
+      ci_gate_enforced: metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"
+    }
     operators: evidence
   };
   fs.writeFileSync("DFRL-88-MACHINE-VERIFICATION-AUDIT.json", JSON.stringify(auditJson, null, 2), "utf-8");
