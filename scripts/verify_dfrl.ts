@@ -11,6 +11,7 @@
 import fs from "fs";
 import path from "path";
 import { verifyAllOperatorsWithZ3 } from "./verify_proofs.js";
+import { REAL_88_PARADOX_REGISTRY } from "../src/data/paradoxData.js";
 
 async function generateAuditDossier() {
   const { evidence, metrics } = await verifyAllOperatorsWithZ3();
