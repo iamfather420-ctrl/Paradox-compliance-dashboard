@@ -476,7 +476,7 @@ export class DFRLEngine {
       code: gateCPassed ? "TENSION_REPRODUCED" : "TENSION_NOT_REPRODUCED",
       details: gateCPassed
         ? `Unmitigated system reproduces failure: ${tensionRun.failure_mode_observed}`
-        : "Failed to reproduce tension in executable baseline state.",
+        : "No implementation-backed baseline harness is connected; tension reproduction remains unverified.",
       evidence: { failure_before: tensionRun.failure_before, unmitigated_state: tensionRun.raw_failure },
       timestamp: now()
     };
@@ -515,7 +515,7 @@ export class DFRLEngine {
       code: gateEPassed ? "RESOLUTION_EFFECTIVE" : "RESOLUTION_FAILED",
       details: gateEPassed
         ? `State transition confirmed: failure_before=TRUE -> failure_after=FALSE. Invariant strictly satisfied.`
-        : "Solution failed to eliminate the contradiction or constraint violation.",
+        : "No implementation-backed execution adapter is connected; resolution efficacy remains unverified.",
       evidence: { 
         before_state: efficacyRun.before_state,
         failure_state: efficacyRun.failure_state,
@@ -572,7 +572,7 @@ export class DFRLEngine {
       code: gateFPassed ? "REPLAY_CONFIRMED" : "INDEPENDENT_REPLAY_FAILED",
       details: gateFPassed
         ? "Deterministic replay verified: two independent execution passes produced identical byte-level states."
-        : "Replay failed: non-deterministic execution state divergence detected.",
+        : "No independent executable replay adapter is connected; deterministic implementation replay remains unverified.",
       evidence: { deterministic_match: isDeterministic, hash_pass_1: hash1, hash_pass_2: hash2 },
       timestamp: now()
     };
@@ -736,81 +736,12 @@ export class DFRLEngine {
    * Execute tension reproduction test (Gate C)
    */
   private executeTensionReproduction(operatorId: string) {
-    if (operatorId === "PARADOX_08") {
-      // Byzantine Quorum tension: with N=54 and an insufficient quorum threshold Q=27 (simple majority)
-      // Two disjoint subsets of 27 nodes can both approve conflicting blocks!
-      return {
-        failure_before: true,
-        failure_mode_observed: "Conflicting quorum certificates approved simultaneously: C1(27 nodes) and C2(27 nodes) have empty intersection, causing state split.",
-        raw_failure: { N: 54, quorum_insufficient: 27, intersection_size: 0, split_brain: true }
-      };
-    }
-
-    if (operatorId === "PARADOX_03") {
-      // Reentrancy tension: an un-mutexed withdraw function allows reentrant calls before balance zeroing
-      return {
-        failure_before: true,
-        failure_mode_observed: "Reentrancy detected: recursive invocation succeeded before initial state commit completed, duplicating token balance mint.",
-        raw_failure: { balance_initial: 100, duplicate_withdrawals: 2, stolen_amount: 200 }
-      };
-    }
-
-    if (operatorId === "PARADOX_09") {
-      // ZK Replay tension: proof generated for Epoch 1 is re-submitted during Epoch 2 without invalidation
-      return {
-        failure_before: true,
-        failure_mode_observed: "Proof replay accepted: stale proof from Epoch 1 successfully renewed credentials in Epoch 2.",
-        raw_failure: { proof_epoch: 1, current_epoch: 2, replay_accepted: true }
-      };
-    }
-
-    if (operatorId === "PARADOX_49") {
-      // Groth16 Malleability tension: public inputs altered without invalidating proof
-      return {
-        failure_before: true,
-        failure_mode_observed: "Signature malleability: altered public inputs accepted by non-separated pairing verifier.",
-        raw_failure: { original_inputs: [1, 2], altered_inputs: [1, 999], malleation_succeeded: true }
-      };
-    }
-
-    if (operatorId === "PARADOX_61") {
-      // Historical rewrite tension: 500-block deep reorg replaces confirmed transactions
-      return {
-        failure_before: true,
-        failure_mode_observed: "Deep reorganization succeeded: alternative chain 500 blocks deep wiped finalized transactions.",
-        raw_failure: { reorg_depth: 500, checkpoint_enforced: false, state_overwritten: true }
-      };
-    }
-
-    if (operatorId === "PARADOX_77") {
-      // Emergency brake tension: software loop freeze blocks emergency command
-      return {
-        failure_before: true,
-        failure_mode_observed: "Software deadlocked: CPU thread freeze blocked software-based emergency stop command; compactor power remained ACTIVE.",
-        raw_failure: { software_deadlocked: true, compactor_running: true, stop_delayed: true }
-      };
-    }
-
-    if (operatorId === "PARADOX_01") {
-      return {
-        failure_before: true,
-        failure_mode_observed: "Orphan state formed: un-salted identity creation conflicted with node record and leaked device identifier.",
-        raw_failure: { salted: false, collision: true, hardware_uuid_leaked: true }
-      };
-    }
-
-    // Concrete domain-derived tension for remaining operators
-    const fallbackItem = REAL_88_PARADOX_REGISTRY.find(p => p.id === operatorId) || REAL_88_PARADOX_REGISTRY[0];
+    // Catalog narratives are not a reproduced failure. No real target-code harness
+    // is connected here, so the engine must not invent a before-state.
     return {
-      failure_before: true,
-      failure_mode_observed: `Vulnerability manifestation: ${fallbackItem.name}. Unmitigated execution violates sovereign invariant ${fallbackItem.verification_formula}.`,
-      raw_failure: {
-        operator_id: fallbackItem.id,
-        vulnerability: fallbackItem.name,
-        violated_formula: fallbackItem.verification_formula,
-        target_code: fallbackItem.code_reference,
-        contradiction_confirmed: true
-      }
+      failure_before: false,
+      failure_mode_observed: `NOT_EXECUTED: no implementation-backed baseline harness for ${operatorId}`,
+      raw_failure: { operator_id: operatorId, execution_status: "NOT_EXECUTED" }
     };
   }
 
@@ -818,105 +749,15 @@ export class DFRLEngine {
    * Execute resolution efficacy state transition (Gate E)
    */
   private executeResolutionEfficacy(operatorId: string) {
-    if (operatorId === "PARADOX_08") {
-      // Quorum proof: N = 54, Q >= 37
-      // For any two quorums C1, C2 of size 37:
-      // |C1 intersect C2| = |C1| + |C2| - |C1 union C2| >= 37 + 37 - 54 = 20 nodes.
-      // Since max Byzantine nodes f = 17, and 20 > 17, at least 3 HONEST nodes are in both quorums.
-      // Honest nodes never sign two conflicting proposals. Q.E.D.
-      return {
-        before_state: { N: 54, Q: 27, byzantine_nodes: 17, intersection: 0 },
-        failure_state: { split_brain: true, conflicting_blocks_accepted: 2 },
-        solution_state: { formula: "Q >= floor(2N/3) + 1", Q_enforced: 37 },
-        after_state: { intersection_size: 20, honest_intersection: 3, conflicting_blocks_accepted: 0 },
-        failure_before: true,
-        failure_after: false
-      };
-    }
-
-    if (operatorId === "PARADOX_03") {
-      return {
-        before_state: { is_locked: false, balance: 100 },
-        failure_state: { reentrant_call: true, balance_leak: 200 },
-        solution_state: { mechanism: "Checks-Effects-Interactions atomic mutex lock" },
-        after_state: { is_locked: false, reentrant_call_rejected: true, final_balance: 100, duplicate_withdrawals: 0 },
-        failure_before: true,
-        failure_after: false
-      };
-    }
-
-    if (operatorId === "PARADOX_09") {
-      return {
-        before_state: { proof_epoch: 1, verifier_epoch: 2 },
-        failure_state: { replay_accepted: true, unauthorized_renew: true },
-        solution_state: { mechanism: "Epoch-Tied Nonce Invalidation binding current_epoch into public inputs" },
-        after_state: { replay_rejected: true, proof_valid_current_only: true, unauthorized_renew: false },
-        failure_before: true,
-        failure_after: false
-      };
-    }
-
-    if (operatorId === "PARADOX_49") {
-      return {
-        before_state: { original_inputs: [1, 2], altered_inputs: [1, 999] },
-        failure_state: { altered_accepted: true, signature_malleated: true },
-        solution_state: { mechanism: "Public Input Separation Vector gamma_abc binding" },
-        after_state: { altered_rejected: true, proof_malleability_eliminated: true },
-        failure_before: true,
-        failure_after: false
-      };
-    }
-
-    if (operatorId === "PARADOX_61") {
-      return {
-        before_state: { current_height: 550, fork_branch: 200, finalized_checkpoint: 500 },
-        failure_state: { reorg_accepted: true, history_rewritten: true },
-        solution_state: { mechanism: "Cumulative Validator Checkpoint Finality Lock (max depth 100)" },
-        after_state: { reorg_depth: 350, reorg_rejected: true, finalized_history_intact: true },
-        failure_before: true,
-        failure_after: false
-      };
-    }
-
-    if (operatorId === "PARADOX_77") {
-      return {
-        before_state: { software_state: "FROZEN_DEADLOCK", e_stop_pressed: true },
-        failure_state: { software_interlock_stalled: true, hydraulics_running: true },
-        solution_state: { mechanism: "Hardware Normally-Closed Interlock Killswitch Relay" },
-        after_state: { relay_contact: "OPEN", hydraulic_power_mw: 0.0, fail_safe_guaranteed: true },
-        failure_before: true,
-        failure_after: false
-      };
-    }
-
-    // Concrete domain-derived state transition for remaining operators
-    const effItem = REAL_88_PARADOX_REGISTRY.find(p => p.id === operatorId) || REAL_88_PARADOX_REGISTRY[0];
+    // A modeled state transition is not execution evidence. Require a real adapter
+    // to exercise the referenced implementation before claiming efficacy or replay.
     return {
-      before_state: {
-        operator_id: effItem.id,
-        name: effItem.name,
-        vulnerability_active: true,
-        verification_formula: effItem.verification_formula
-      },
-      failure_state: {
-        contradiction_active: true,
-        state_violation: true,
-        unmitigated_target: effItem.code_reference
-      },
-      solution_state: {
-        solution_anchor: effItem.solution_id,
-        mechanism: effItem.solution_name,
-        efficacy_proof: effItem.efficacy_proof,
-        implementation: effItem.code_reference
-      },
-      after_state: {
-        invariant_enforced: true,
-        state_violation: false,
-        verified_formula: effItem.verification_formula,
-        solution_applied: effItem.solution_name
-      },
-      failure_before: true,
-      failure_after: false
+      before_state: { operator_id: operatorId, execution_status: "NOT_EXECUTED" },
+      failure_state: { execution_status: "NOT_EXECUTED" },
+      solution_state: { execution_status: "NOT_EXECUTED" },
+      after_state: { invariant_enforced: false, execution_status: "NOT_EXECUTED" },
+      failure_before: false,
+      failure_after: true
     };
   }
 
