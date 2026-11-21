@@ -149,7 +149,8 @@ export class DFRLEngine {
    * Build formal Proof Obligation Object matching DFRL Specification Section 5
    */
   public getObligation(operatorId: string): ProofObligation {
-    const item = REAL_88_PARADOX_REGISTRY.find(p => p.id === operatorId) || REAL_88_PARADOX_REGISTRY[0];
+    const item = REAL_88_PARADOX_REGISTRY.find(p => p.id === operatorId);
+    if (!item) throw new Error(`Unknown DFRL operator: ${operatorId}`);
 
     const obligationMap: Record<string, Partial<ProofObligation>> = {
       PARADOX_08: {
@@ -351,7 +352,8 @@ export class DFRLEngine {
    * Execute the 9 Mandatory Proof Gates for a paradox operator
    */
   public async verify(operatorId: string): Promise<ProofCertificate> {
-    const item = REAL_88_PARADOX_REGISTRY.find(p => p.id === operatorId) || REAL_88_PARADOX_REGISTRY[0];
+    const item = REAL_88_PARADOX_REGISTRY.find(p => p.id === operatorId);
+    if (!item) throw new Error(`Unknown DFRL operator: ${operatorId}`);
     const obligation = this.getObligation(item.id);
     const provenance = extractProvenance(item);
     const mathematical_proof = generateMathematicalProof(item);
@@ -586,10 +588,10 @@ export class DFRLEngine {
       gate_id: "GATE_G_FALSIFICATION",
       gate_name: "Gate G — Falsification & Adversarial Resistance",
       passed: gateGPassed,
-      code: gateGPassed ? "FALSIFICATION_RESISTANT" : "COUNTEREXAMPLE_FOUND",
+      code: gateGPassed ? "FALSIFICATION_RESISTANT" : (falsifyRun.scenarios_tested > 0 && falsifyRun.scenarios_passed === 0 ? "ADVERSARIAL_TESTS_NOT_EXECUTED" : "COUNTEREXAMPLE_OR_TEST_FAILURE"),
       details: gateGPassed
         ? `Adversarial stress suite: ${falsifyRun.scenarios_passed}/${falsifyRun.scenarios_tested} stress tests rejected invalid inputs. Zero counterexamples found.`
-        : "Counterexample found during adversarial boundary stress testing!",
+        : "No executable operator-specific adversarial test harness is wired. Static scenario templates are not execution evidence; falsification remains unverified.",
       evidence: falsifyRun,
       timestamp: now()
     };
@@ -922,137 +924,19 @@ export class DFRLEngine {
    * Execute adversarial falsification stress tests (Gate G)
    */
   private executeAdversarialFalsification(operatorId: string) {
-    if (operatorId === "PARADOX_08") {
-      // Test boundaries: Q=36 (must fail quorum), Q=37 (must pass), Q=38 (must pass)
-      // Byzantine nodes: 16 (pass), 17 (pass at threshold), 18 (fail above threshold)
-      const tests = [
-        { scenario: "Boundary check: Quorum Q = 36 (< 37 threshold)", input: { N: 54, Q: 36 }, expected: "REJECT", observed: "REJECT", passed: true },
-        { scenario: "Exact minimum quorum: Quorum Q = 37", input: { N: 54, Q: 37 }, expected: "ACCEPT", observed: "ACCEPT", passed: true },
-        { scenario: "Supermajority margin: Quorum Q = 38", input: { N: 54, Q: 38 }, expected: "ACCEPT", observed: "ACCEPT", passed: true },
-        { scenario: "Conflicting certificate intersection: 2 * 37 - 54 = 20", input: { Q1: 37, Q2: 37, N: 54 }, expected: "INTERSECTION_20", observed: "INTERSECTION_20", passed: true },
-        { scenario: "Byzantine tolerance limit: f = 17 (<= floor((54-1)/3))", input: { f: 17, max_allowed: 17 }, expected: "TOLERATED", observed: "TOLERATED", passed: true },
-        { scenario: "Excess Byzantine nodes: f = 18 (> 17)", input: { f: 18, max_allowed: 17 }, expected: "QUORUM_LIVELOCK_HALT", observed: "QUORUM_LIVELOCK_HALT", passed: true }
-      ];
-      return {
-        scenarios_tested: tests.length,
-        scenarios_passed: tests.filter(t => t.passed).length,
-        counterexample_found: false,
-        test_cases: tests
-      };
-    }
-
-    if (operatorId === "PARADOX_03") {
-      const tests = [
-        { scenario: "Normal non-reentrant execution", input: { reentrant_call: false }, expected: "EXECUTE_SUCCESS", observed: "EXECUTE_SUCCESS", passed: true },
-        { scenario: "Immediate recursive reentrancy attack", input: { reentrant_call: true, depth: 1 }, expected: "MUTEX_REJECT", observed: "MUTEX_REJECT", passed: true },
-        { scenario: "Deep nested recursive call (depth 5)", input: { reentrant_call: true, depth: 5 }, expected: "MUTEX_REJECT", observed: "MUTEX_REJECT", passed: true },
-        { scenario: "Post-completion subsequent transaction", input: { lock_cleared: true }, expected: "EXECUTE_SUCCESS", observed: "EXECUTE_SUCCESS", passed: true }
-      ];
-      return {
-        scenarios_tested: tests.length,
-        scenarios_passed: tests.filter(t => t.passed).length,
-        counterexample_found: false,
-        test_cases: tests
-      };
-    }
-
-    if (operatorId === "PARADOX_09") {
-      const tests = [
-        { scenario: "Valid current epoch proof submission", input: { proof_epoch: 10, current_epoch: 10 }, expected: "ACCEPT", observed: "ACCEPT", passed: true },
-        { scenario: "Stale past epoch proof replay", input: { proof_epoch: 9, current_epoch: 10 }, expected: "REJECT", observed: "REJECT", passed: true },
-        { scenario: "Future epoch speculative proof", input: { proof_epoch: 11, current_epoch: 10 }, expected: "REJECT", observed: "REJECT", passed: true },
-        { scenario: "Replayed nonce within same epoch", input: { duplicate_nonce: true }, expected: "REJECT", observed: "REJECT", passed: true }
-      ];
-      return {
-        scenarios_tested: tests.length,
-        scenarios_passed: tests.filter(t => t.passed).length,
-        counterexample_found: false,
-        test_cases: tests
-      };
-    }
-
-    if (operatorId === "PARADOX_49") {
-      const tests = [
-        { scenario: "Original valid public inputs", input: { x: [100, 200] }, expected: "ACCEPT", observed: "ACCEPT", passed: true },
-        { scenario: "Modified public inputs with original proof", input: { x: [100, 201] }, expected: "REJECT", observed: "REJECT", passed: true },
-        { scenario: "All-zero public inputs exploit vector", input: { x: [0, 0] }, expected: "REJECT", observed: "REJECT", passed: true },
-        { scenario: "Bit-flipped public input vector", input: { x: [100 ^ 1, 200] }, expected: "REJECT", observed: "REJECT", passed: true }
-      ];
-      return {
-        scenarios_tested: tests.length,
-        scenarios_passed: tests.filter(t => t.passed).length,
-        counterexample_found: false,
-        test_cases: tests
-      };
-    }
-
-    if (operatorId === "PARADOX_61") {
-      const tests = [
-        { scenario: "Shallow fork reorganization (depth = 12 < 100)", input: { depth: 12 }, expected: "ACCEPT", observed: "ACCEPT", passed: true },
-        { scenario: "Boundary reorg at exact depth limit (depth = 100)", input: { depth: 100 }, expected: "ACCEPT", observed: "ACCEPT", passed: true },
-        { scenario: "Excessive reorg past finality limit (depth = 101)", input: { depth: 101 }, expected: "REJECT", observed: "REJECT", passed: true },
-        { scenario: "Deep historical rewrite attack (depth = 1000)", input: { depth: 1000 }, expected: "REJECT", observed: "REJECT", passed: true }
-      ];
-      return {
-        scenarios_tested: tests.length,
-        scenarios_passed: tests.filter(t => t.passed).length,
-        counterexample_found: false,
-        test_cases: tests
-      };
-    }
-
-    if (operatorId === "PARADOX_77") {
-      const tests = [
-        { scenario: "Relay CLOSED + software ACTIVE: compactor powered", input: { relay: "CLOSED", sw: "ACTIVE" }, expected: "POWER_ON", observed: "POWER_ON", passed: true },
-        { scenario: "Relay OPEN + software ACTIVE: compactor stopped", input: { relay: "OPEN", sw: "ACTIVE" }, expected: "POWER_OFF", observed: "POWER_OFF", passed: true },
-        { scenario: "Relay OPEN + software FROZEN DEADLOCKED: compactor stopped", input: { relay: "OPEN", sw: "FROZEN" }, expected: "POWER_OFF", observed: "POWER_OFF", passed: true },
-        { scenario: "Relay OPEN + software KILLED: compactor stopped", input: { relay: "OPEN", sw: "CRASHED" }, expected: "POWER_OFF", observed: "POWER_OFF", passed: true }
-      ];
-      return {
-        scenarios_tested: tests.length,
-        scenarios_passed: tests.filter(t => t.passed).length,
-        counterexample_found: false,
-        test_cases: tests
-      };
-    }
-
-    // Concrete domain-derived stress tests for remaining operators
-    const opItem = REAL_88_PARADOX_REGISTRY.find(p => p.id === operatorId) || REAL_88_PARADOX_REGISTRY[0];
-    const defaultTests = [
-      {
-        scenario: `Boundary test: valid input satisfying ${opItem.verification_formula}`,
-        input: { operator: opItem.id, formula: opItem.verification_formula, signature_valid: true, tampered: false },
-        expected: "ACCEPT",
-        observed: "ACCEPT",
-        passed: true
-      },
-      {
-        scenario: `Adversarial input mutation attacking ${opItem.name}`,
-        input: { operator: opItem.id, formula: opItem.verification_formula, signature_valid: false, tampered: true },
-        expected: "REJECT",
-        observed: "REJECT",
-        passed: true
-      },
-      {
-        scenario: `Boundary constraint stress on ${opItem.code_reference}`,
-        input: { operator: opItem.id, payload_length: 0, out_of_bounds: true },
-        expected: "REJECT",
-        observed: "REJECT",
-        passed: true
-      },
-      {
-        scenario: `Cross-epoch or replay attempt on ${opItem.solution_id}`,
-        input: { operator: opItem.id, nonce_replayed: true, expired_epoch: true },
-        expected: "REJECT",
-        observed: "REJECT",
-        passed: true
-      }
-    ];
+    // Do not manufacture expected==observed results. Until a real operator-specific
+    // harness executes the referenced implementation, Gate G must remain unverified.
     return {
-      scenarios_tested: defaultTests.length,
-      scenarios_passed: defaultTests.length,
+      scenarios_tested: 1,
+      scenarios_passed: 0,
       counterexample_found: false,
-      test_cases: defaultTests
+      test_cases: [{
+        scenario: `Adversarial execution for ${operatorId} is not wired to an executable implementation harness`,
+        input: { operator_id: operatorId },
+        expected: "EXECUTED_ADVERSARIAL_RESULT",
+        observed: "NOT_EXECUTED",
+        passed: false
+      }]
     };
   }
 
