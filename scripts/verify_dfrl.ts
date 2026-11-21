@@ -11,20 +11,22 @@
 import fs from "fs";
 import path from "path";
 import { verifyAllOperatorsWithZ3 } from "./verify_proofs.js";
+import { REAL_88_PARADOX_REGISTRY } from "../src/data/paradoxData.js";
 
 async function generateAuditDossier() {
   const { evidence, metrics } = await verifyAllOperatorsWithZ3();
+  const executedCount = evidence.filter(ev => ev.execution_status !== "FORMAL_EXECUTION_NOT_PERFORMED").length;
+  const modelProofCount = evidence.filter(ev => ev.classification === "MACHINE_CHECKED_MODEL_PROOF").length;
+  const replayMatchCount = evidence.filter(ev => ev.replay.match).length;
+  const directImplementationProofCount = evidence.filter(ev => ev.implementation_correspondence === "DIRECT_IMPLEMENTATION_PROVEN").length;
 
   // 1. Build Markdown Table
   let mdTable = "| ID | SMT Artifact | Artifact Hash | Z3 Executed | Z3 Result | Replay | Implementation Correspondence | Classification |\n";
   mdTable += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n";
 
-  const spotlightIds = ["PARADOX_01", "PARADOX_03", "PARADOX_08", "PARADOX_09", "PARADOX_49", "PARADOX_61", "PARADOX_77"];
-
   for (const ev of evidence) {
-    const isSpotlight = spotlightIds.includes(ev.operator_id);
-    const implCorr = isSpotlight ? "SPOTLIGHT_BENCHMARK_MODEL" : "MODEL_PROOF_ONLY";
-    mdTable += `| **${ev.operator_id}** | ${ev.category} SMT-LIB | \`${ev.smt_sha256.slice(0, 10)}...${ev.smt_sha256.slice(-6)}\` | YES | **${ev.solver_result.toUpperCase()}** | ${ev.replay.match ? "MATCH" : "DIVERGENCE"} | ${implCorr} | \`${ev.classification}\` |\n`;
+    const implCorr = ev.implementation_correspondence;
+    mdTable += `| **${ev.operator_id}** | ${ev.category} SMT-LIB | \`${ev.smt_sha256.slice(0, 10)}...${ev.smt_sha256.slice(-6)}\` | ${ev.execution_status === "FORMAL_EXECUTION_NOT_PERFORMED" ? "NO" : "YES"} | **${ev.solver_result.toUpperCase()}** | ${ev.replay.match ? "MATCH" : "DIVERGENCE"} | ${implCorr} | \`${ev.classification}\` |\n`;
   }
 
   const auditMd = `# DFRL — 88-OPERATOR MACHINE VERIFICATION AUDIT REPORT
@@ -38,28 +40,28 @@ async function generateAuditDossier() {
 ## 1. EXECUTIVE METRICS
 
 \`\`\`text
-CANONICAL OPERATORS:         88
-UNIQUE OPERATORS:            88
+CANONICAL OPERATORS:         ${evidence.length}
+UNIQUE OPERATORS:            ${new Set(evidence.map(ev => ev.operator_id)).size}
 
-SMT ARTIFACTS:               88
-VALID SMT ARTIFACTS:         88
+SMT ARTIFACTS:               ${evidence.length}
+VALID SMT ARTIFACTS:         ${evidence.filter(ev => Boolean(ev.smt_sha256)).length}
 
-Z3 ATTEMPTED:                88
-Z3 ACTUALLY EXECUTED:        88
+Z3 ATTEMPTED:                ${evidence.length}
+Z3 ACTUALLY EXECUTED:        ${executedCount}
 Z3 UNSAT:                    ${metrics.unsat}
 Z3 SAT:                      ${metrics.sat}
 Z3 UNKNOWN:                  ${metrics.unknown}
-Z3 TIMEOUT:                  0
+Z3 TIMEOUT:                  NOT TRACKED BY THIS RUNNER
 Z3 ERROR:                    ${metrics.error}
 
-CLAIM_ONLY:                  0
-FAIL_CLOSED:                 0
-HOLD:                        0
+MODEL PROOFS CLASSIFIED:     ${modelProofCount}
+DIRECT IMPLEMENTATION PROOFS: ${directImplementationProofCount}
+FAILURES / UNKNOWN:          ${metrics.sat + metrics.unknown + metrics.error}
 
-REPLAY A EXECUTED:           88
-REPLAY B EXECUTED:           88
-REPLAY MATCHES:              ${metrics.replayed}
-REPLAY DIVERGENCES:          0
+REPLAY A EXECUTED:           ${executedCount}
+REPLAY B EXECUTED:           ${executedCount}
+REPLAY MATCHES:              ${replayMatchCount}
+REPLAY DIVERGENCES:          ${evidence.length - replayMatchCount}
 TOTAL EXECUTION TIME:        ${metrics.duration_total_ms} ms
 \`\`\`
 
@@ -68,15 +70,16 @@ TOTAL EXECUTION TIME:        ${metrics.duration_total_ms} ms
 ## 2. FINAL CLASSIFICATION DECLARATION
 
 \`\`\`text
-88/88 CANONICAL OPERATORS PRESENT:             YES
-88/88 SMT ARTIFACTS PRESENT:                   YES
-88/88 Z3 EXECUTED:                             YES
-88/88 Z3 MACHINE-CHECKED:                      YES
-88/88 IMPLEMENTATION-BACKED:                   PARTIAL (7 Direct Spotlight Benchmarks, 81 Architecture Model Proofs)
-88/88 INDEPENDENTLY REPLAYED:                  YES
-DFRL ANTI-FABRICATION CONSTITUTION ENFORCED:   YES
-BATCH VERIFY ALL 88 IS LIVE:                   YES
-CI FORMAL VERIFICATION GATE:                   YES
+CANONICAL OPERATORS PRESENT:             ${evidence.length}/${REAL_88_PARADOX_REGISTRY.length}
+SMT ARTIFACTS PRESENT:                   ${evidence.filter(ev => Boolean(ev.smt_sha256)).length}/${REAL_88_PARADOX_REGISTRY.length}
+Z3 EXECUTION ATTEMPTS:                   ${executedCount}/${REAL_88_PARADOX_REGISTRY.length}
+MACHINE-CHECKED MODEL PROOFS:             ${modelProofCount}/${REAL_88_PARADOX_REGISTRY.length}
+DIRECT IMPLEMENTATION PROOFS:             ${directImplementationProofCount}
+REPLAY MATCHES:                          ${replayMatchCount}/${REAL_88_PARADOX_REGISTRY.length}
+IMPLEMENTATION CORRESPONDENCE:            MODEL_ONLY; NO DIRECT CODE EQUIVALENCE
+ANTI-FABRICATION STATUS:                 PARTIAL; GATES C/E/F/G REQUIRE REAL ADAPTERS
+BATCH VERIFY ALL 88:                     ${evidence.length === REAL_88_PARADOX_REGISTRY.length ? "COMPLETED" : "INCOMPLETE"}
+Z3 MODEL VERIFICATION CHECK:              ${metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"}
 \`\`\`
 
 ---
@@ -104,15 +107,17 @@ In accordance with Section 13 and 14 of the DFRL Anti-Fabrication Constitution:
     verifier: "Z3 Theorem Prover v4.12.2 (WebAssembly Node Kernel)",
     metrics,
     declarations: {
-      canonical_operators_present: "YES",
-      smt_artifacts_present: "YES",
-      z3_executed: "YES",
-      z3_machine_checked: "YES",
-      implementation_backed: "PARTIAL",
-      independently_replayed: "YES",
-      anti_fabrication_enforced: "YES",
-      batch_verify_live: "YES",
-      ci_gate_enforced: "YES"
+      canonical_operators_present: evidence.length === REAL_88_PARADOX_REGISTRY.length ? "YES" : "PARTIAL",
+      smt_artifacts_present: evidence.every(ev => Boolean(ev.smt_sha256)) ? "YES" : "PARTIAL",
+      z3_executed: executedCount === evidence.length ? "YES" : "PARTIAL",
+      z3_machine_checked: modelProofCount === evidence.length ? "YES" : "PARTIAL",
+      implementation_backed: "MODEL_PROOF_ONLY",
+      direct_implementation_proofs: directImplementationProofCount,
+      falsification_and_implementation_gates: "NOT_VERIFIED",
+      independently_replayed: replayMatchCount === evidence.length ? "YES" : "PARTIAL",
+      anti_fabrication_enforced: "PARTIAL",
+      batch_verify_live: evidence.length === REAL_88_PARADOX_REGISTRY.length ? "YES" : "NO",
+      z3_model_verification_check: metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"
     },
     operators: evidence
   };
