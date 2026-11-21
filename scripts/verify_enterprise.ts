@@ -9,6 +9,8 @@
  */
 
 import { init } from "z3-solver";
+import { createServer } from "http";
+import { DFRLEngine } from "../src/services/dfrlEngine.js";
 import { createHash } from "crypto";
 import { REAL_88_PARADOX_REGISTRY } from "../src/data/paradoxData.js";
 import { generateMathematicalProof } from "../src/services/dfrlFormalArtifacts.js";
@@ -88,25 +90,38 @@ async function runEnterpriseTests() {
   }
 
   // ==================================================================
-  // TEST 3: Z3 DEPENDENCY-FAILURE TEST (Requirement 9)
+  // TEST 3: REAL DFRL VERIFIER ENDPOINT FAILURE TEST
   // ==================================================================
-  console.log("\n[TEST 3] Z3 Dependency-Failure & Fail-Closed Behavior Test");
-  // Simulate an unavailable solver by injecting an uninitialized / broken execution
+  console.log("\n[TEST 3] Real DFRL verifier endpoint failure & fail-closed behavior");
+  const oldApiBase = process.env.API_BASE_URL;
+  const unavailableServer = createServer((_request, response) => {
+    response.writeHead(503, { "content-type": "application/json" });
+    response.end(JSON.stringify({ error: "test verifier unavailable" }));
+  });
+  await new Promise<void>((resolve, reject) => {
+    unavailableServer.once("error", reject);
+    unavailableServer.listen(0, "127.0.0.1", resolve);
+  });
+  const address = unavailableServer.address();
+  if (!address || typeof address === "string") throw new Error("Could not bind local verifier test server");
   try {
-    const unavailSolver: any = null;
-    let fallbackStatus = "VERIFIED";
-    if (!unavailSolver) {
-      fallbackStatus = "FORMAL_EXECUTION_NOT_PERFORMED";
-    }
-    console.log(`  -> When Z3 solver is unavailable: status = "${fallbackStatus}"`);
-    if (fallbackStatus !== "FORMAL_EXECUTION_NOT_PERFORMED") {
-      console.error("  FAILED: System did not fail closed when Z3 was unavailable!");
+    process.env.API_BASE_URL = `http://127.0.0.1:${address.port}`;
+    const certificate = await DFRLEngine.getInstance().verify("PARADOX_08");
+    console.log(`  -> Actual verifier request result: ${certificate.formal_verifier.execution_status}`);
+    if (certificate.formal_verifier.execution_status !== "FORMAL_EXECUTION_NOT_PERFORMED") {
+      console.error("  FAILED: unavailable verifier was not represented as NOT_PERFORMED");
       passedAll = false;
     } else {
-      console.log("  -> SUCCESS: System strictly failed closed to FORMAL_EXECUTION_NOT_PERFORMED.");
+      console.log("  -> SUCCESS: actual DFRL verifier path failed closed on HTTP 503.");
     }
-  } catch (e: any) {
-    console.log("  -> Caught expected dependency error, verified fail-closed.");
+    if (certificate.status === "VERIFIED") {
+      console.error("  FAILED: certificate was marked VERIFIED without a successful formal verifier");
+      passedAll = false;
+    }
+  } finally {
+    if (oldApiBase === undefined) delete process.env.API_BASE_URL;
+    else process.env.API_BASE_URL = oldApiBase;
+    await new Promise<void>((resolve) => unavailableServer.close(() => resolve()));
   }
 
   console.log("\n------------------------------------------------------------------");
