@@ -14,6 +14,10 @@ import { verifyAllOperatorsWithZ3 } from "./verify_proofs.js";
 
 async function generateAuditDossier() {
   const { evidence, metrics } = await verifyAllOperatorsWithZ3();
+  const executedCount = evidence.filter(ev => ev.execution_status !== "FORMAL_EXECUTION_NOT_PERFORMED").length;
+  const modelProofCount = evidence.filter(ev => ev.classification === "MACHINE_CHECKED_MODEL_PROOF").length;
+  const replayMatchCount = evidence.filter(ev => ev.replay.match).length;
+  const directImplementationProofCount = evidence.filter(ev => ev.implementation_correspondence === "DIRECT_IMPLEMENTATION_PROVEN").length;
 
   // 1. Build Markdown Table
   let mdTable = "| ID | SMT Artifact | Artifact Hash | Z3 Executed | Z3 Result | Replay | Implementation Correspondence | Classification |\n";
@@ -23,8 +27,8 @@ async function generateAuditDossier() {
 
   for (const ev of evidence) {
     const isSpotlight = spotlightIds.includes(ev.operator_id);
-    const implCorr = isSpotlight ? "SPOTLIGHT_BENCHMARK_MODEL" : "MODEL_PROOF_ONLY";
-    mdTable += `| **${ev.operator_id}** | ${ev.category} SMT-LIB | \`${ev.smt_sha256.slice(0, 10)}...${ev.smt_sha256.slice(-6)}\` | YES | **${ev.solver_result.toUpperCase()}** | ${ev.replay.match ? "MATCH" : "DIVERGENCE"} | ${implCorr} | \`${ev.classification}\` |\n`;
+    const implCorr = ev.implementation_correspondence;
+    mdTable += `| **${ev.operator_id}** | ${ev.category} SMT-LIB | \`${ev.smt_sha256.slice(0, 10)}...${ev.smt_sha256.slice(-6)}\` | ${ev.execution_status === "FORMAL_EXECUTION_NOT_PERFORMED" ? "NO" : "YES"} | **${ev.solver_result.toUpperCase()}** | ${ev.replay.match ? "MATCH" : "DIVERGENCE"} | ${implCorr} | \`${ev.classification}\` |\n`;
   }
 
   const auditMd = `# DFRL — 88-OPERATOR MACHINE VERIFICATION AUDIT REPORT
@@ -45,21 +49,21 @@ SMT ARTIFACTS:               88
 VALID SMT ARTIFACTS:         88
 
 Z3 ATTEMPTED:                88
-Z3 ACTUALLY EXECUTED:        88
+Z3 ACTUALLY EXECUTED:        ${executedCount}
 Z3 UNSAT:                    ${metrics.unsat}
 Z3 SAT:                      ${metrics.sat}
 Z3 UNKNOWN:                  ${metrics.unknown}
-Z3 TIMEOUT:                  0
+Z3 TIMEOUT:                  NOT TRACKED BY THIS RUNNER
 Z3 ERROR:                    ${metrics.error}
 
 CLAIM_ONLY:                  0
 FAIL_CLOSED:                 0
 HOLD:                        0
 
-REPLAY A EXECUTED:           88
-REPLAY B EXECUTED:           88
-REPLAY MATCHES:              ${metrics.replayed}
-REPLAY DIVERGENCES:          0
+REPLAY A EXECUTED:           ${executedCount}
+REPLAY B EXECUTED:           ${executedCount}
+REPLAY MATCHES:              ${replayMatchCount}
+REPLAY DIVERGENCES:          ${evidence.length - replayMatchCount}
 TOTAL EXECUTION TIME:        ${metrics.duration_total_ms} ms
 \`\`\`
 
@@ -108,9 +112,9 @@ In accordance with Section 13 and 14 of the DFRL Anti-Fabrication Constitution:
       smt_artifacts_present: "YES",
       z3_executed: "YES",
       z3_machine_checked: "YES",
-      implementation_backed: "PARTIAL",
-      independently_replayed: "YES",
-      anti_fabrication_enforced: "YES",
+      implementation_backed: "MODEL_PROOF_ONLY",\n      direct_implementation_proofs: directImplementationProofCount,\n      falsification_and_implementation_gates: "NOT_VERIFIED",
+      independently_replayed: replayMatchCount === evidence.length ? "YES" : "PARTIAL",
+      anti_fabrication_enforced: "PARTIAL",
       batch_verify_live: "YES",
       ci_gate_enforced: "YES"
     },
