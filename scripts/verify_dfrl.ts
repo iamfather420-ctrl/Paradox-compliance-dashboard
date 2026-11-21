@@ -39,13 +39,13 @@ async function generateAuditDossier() {
 ## 1. EXECUTIVE METRICS
 
 \`\`\`text
-CANONICAL OPERATORS:         88
-UNIQUE OPERATORS:            88
+CANONICAL OPERATORS:         ${evidence.length}
+UNIQUE OPERATORS:            ${new Set(evidence.map(ev => ev.operator_id)).size}
 
-SMT ARTIFACTS:               88
-VALID SMT ARTIFACTS:         88
+SMT ARTIFACTS:               ${evidence.length}
+VALID SMT ARTIFACTS:         ${evidence.filter(ev => Boolean(ev.smt_sha256)).length}
 
-Z3 ATTEMPTED:                88
+Z3 ATTEMPTED:                ${evidence.length}
 Z3 ACTUALLY EXECUTED:        ${executedCount}
 Z3 UNSAT:                    ${metrics.unsat}
 Z3 SAT:                      ${metrics.sat}
@@ -53,9 +53,9 @@ Z3 UNKNOWN:                  ${metrics.unknown}
 Z3 TIMEOUT:                  NOT TRACKED BY THIS RUNNER
 Z3 ERROR:                    ${metrics.error}
 
-CLAIM_ONLY:                  0
-FAIL_CLOSED:                 0
-HOLD:                        0
+MODEL PROOFS CLASSIFIED:     ${modelProofCount}
+DIRECT IMPLEMENTATION PROOFS: ${directImplementationProofCount}
+FAILURES / UNKNOWN:          ${metrics.sat + metrics.unknown + metrics.error}
 
 REPLAY A EXECUTED:           ${executedCount}
 REPLAY B EXECUTED:           ${executedCount}
@@ -117,7 +117,7 @@ In accordance with Section 13 and 14 of the DFRL Anti-Fabrication Constitution:
       anti_fabrication_enforced: "PARTIAL",
       batch_verify_live: evidence.length === REAL_88_PARADOX_REGISTRY.length ? "YES" : "NO",
       ci_gate_enforced: metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"
-    }
+    },
     operators: evidence
   };
   fs.writeFileSync("DFRL-88-MACHINE-VERIFICATION-AUDIT.json", JSON.stringify(auditJson, null, 2), "utf-8");
