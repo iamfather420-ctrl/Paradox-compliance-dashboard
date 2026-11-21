@@ -69,7 +69,7 @@ TOTAL EXECUTION TIME:        ${metrics.duration_total_ms} ms
 
 ## 2. FINAL CLASSIFICATION DECLARATION
 
-\```text
+\`\`\`text
 CANONICAL OPERATORS PRESENT:             ${evidence.length}/${REAL_88_PARADOX_REGISTRY.length}
 SMT ARTIFACTS PRESENT:                   ${evidence.filter(ev => Boolean(ev.smt_sha256)).length}/${REAL_88_PARADOX_REGISTRY.length}
 Z3 EXECUTION ATTEMPTS:                   ${executedCount}/${REAL_88_PARADOX_REGISTRY.length}
@@ -80,7 +80,7 @@ IMPLEMENTATION CORRESPONDENCE:            MODEL_ONLY; NO DIRECT CODE EQUIVALENCE
 ANTI-FABRICATION STATUS:                 PARTIAL; GATES C/E/F/G REQUIRE REAL ADAPTERS
 BATCH VERIFY ALL 88:                     ${evidence.length === REAL_88_PARADOX_REGISTRY.length ? "COMPLETED" : "INCOMPLETE"}
 CI FORMAL VERIFICATION GATE:              ${metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"}
-\```
+\`\`\`
 
 ---
 
