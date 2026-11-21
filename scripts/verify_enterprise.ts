@@ -118,6 +118,12 @@ async function runEnterpriseTests() {
       console.error("  FAILED: certificate was marked VERIFIED without a successful formal verifier");
       passedAll = false;
     }
+    for (const gateId of ["GATE_C_REPRODUCE_TENSION", "GATE_E_EFFICACY", "GATE_F_INDEPENDENT_REPLAY", "GATE_G_FALSIFICATION"] as const) {
+      if (certificate.gates[gateId].passed) {
+        console.error(`  FAILED: ${gateId} passed without an implementation-backed execution adapter`);
+        passedAll = false;
+      }
+    }
   } finally {
     if (oldApiBase === undefined) delete process.env.API_BASE_URL;
     else process.env.API_BASE_URL = oldApiBase;
