@@ -79,7 +79,7 @@ REPLAY MATCHES:                          ${replayMatchCount}/${REAL_88_PARADOX_R
 IMPLEMENTATION CORRESPONDENCE:            MODEL_ONLY; NO DIRECT CODE EQUIVALENCE
 ANTI-FABRICATION STATUS:                 PARTIAL; GATES C/E/F/G REQUIRE REAL ADAPTERS
 BATCH VERIFY ALL 88:                     ${evidence.length === REAL_88_PARADOX_REGISTRY.length ? "COMPLETED" : "INCOMPLETE"}
-CI FORMAL VERIFICATION GATE:              ${metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"}
+Z3 MODEL VERIFICATION CHECK:              ${metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"}
 \`\`\`
 
 ---
@@ -117,7 +117,7 @@ In accordance with Section 13 and 14 of the DFRL Anti-Fabrication Constitution:
       independently_replayed: replayMatchCount === evidence.length ? "YES" : "PARTIAL",
       anti_fabrication_enforced: "PARTIAL",
       batch_verify_live: evidence.length === REAL_88_PARADOX_REGISTRY.length ? "YES" : "NO",
-      ci_gate_enforced: metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"
+      z3_model_verification_check: metrics.unsat === metrics.total && metrics.replayed === metrics.total && metrics.error === 0 && metrics.unknown === 0 ? "PASS" : "FAIL"
     },
     operators: evidence
   };
